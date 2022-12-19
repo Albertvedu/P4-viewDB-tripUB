@@ -69,7 +69,7 @@ public class EscenaRegister extends Escena {
 
 
     public void popularGrups(){
-        List<HashMap<Object,Object>> grups = controller.getAllGrupsPerNom();
+        List<HashMap<Object,Object>> grups = grupsController.getAllGrupsPerNom();
         if(grups == null){
             return;
         }
@@ -127,7 +127,7 @@ public class EscenaRegister extends Escena {
             String grupNom = registre_grup.getText();
 
             //verificar el nombre no esté repetido
-            List<HashMap<Object,Object>> grups = controller.getAllGrupsPerNom();
+            List<HashMap<Object,Object>> grups = grupsController.getAllGrupsPerNom();
             if(grups == null){
                 //pass
             }else{
@@ -153,7 +153,7 @@ public class EscenaRegister extends Escena {
                 System.out.println("Error al crear un nuevo grupo");
                 activeValidComboBox=false;
             }else{
-                finalgrup = controller.addNewGrup(grupNom);
+                finalgrup = grupsController.addNewGrup(grupNom);
                 activeValidComboBox=true;
             }
         }else{
@@ -173,7 +173,7 @@ public class EscenaRegister extends Escena {
 
         System.out.println("finalgrup:"+finalgrup);
         //PAS2- Crear una nueva Persona
-        StatusType resultat = controller.addNewPersona(correu, nom, cognoms, dni, pwd, finalgrup);
+        StatusType resultat = registerController.addNewPersona(correu, nom, cognoms, dni, pwd, finalgrup);
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         if (resultat == StatusType.PERSONA_DUPLICADA || resultat == StatusType.FORMAT_INCORRECTE || resultat == StatusType.FORMAT_INCORRECTE_CORREU_PWD) {
@@ -186,7 +186,7 @@ public class EscenaRegister extends Escena {
             //Registre amb èxit:
 
             //PAS3- crear relacion grupoPersona
-            controller.addRelacionGrupPersona(correu,finalgrup);
+            grupsController.addRelacionGrupPersona(correu,finalgrup);
 
             alert.setTitle("Registre exitòs");
             alert.setHeaderText("Registre exitòs");
@@ -213,12 +213,14 @@ public class EscenaRegister extends Escena {
         try {
             Escena login = EscenaFactory.INSTANCE.creaEscena("login-view", "TripUB Login View");
             EscenaLogin escenaLogin = ((EscenaLogin) login);
-            login.setController(controller);
+            login.setController();
             this.controller.getSessionMemory().setCorreuPersona(correu);
             escenaLogin.start();
             stage.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

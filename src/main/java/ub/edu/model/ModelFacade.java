@@ -1,14 +1,26 @@
 package ub.edu.model;
 
+import ub.edu.controller.Controller;
+
 import java.util.*;
 
 public class ModelFacade {
+    private static ModelFacade uniqueInstance;
     private TripUB tripUB;
 
     public ModelFacade(TripUB tripUB) {
         this.tripUB = tripUB;
     }
-
+    public static ModelFacade getInstance(){
+        if (uniqueInstance == null) {
+            synchronized (ModelFacade.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new ModelFacade(TripUB.getInstance());
+                }
+            }
+        }
+        return uniqueInstance;
+    }
     public StatusType validateRegistrePersona(String username, String password) {
         if (Seguretat.isMail((username)) && Seguretat.isPasswordSegur(password)) {
             Persona persona = findPersonaByCorreu(username);
@@ -38,7 +50,7 @@ public class ModelFacade {
         return persona.getPwd();
     }
 
-    public StatusType loguejarSociStatus(String correu, String password) {
+    public StatusType  loguejarSociStatus(String correu, String password) {
         Persona persona = findPersonaByCorreu(correu);
         if (persona == null) {
             return StatusType.CORREU_INEXISTENT;
@@ -254,7 +266,21 @@ public class ModelFacade {
         }
         return hashMap;
     }
+    public  void getAllRutesPerLocalitat(String name){
+        this.tripUB.getRutesByLocalitat(name);
 
+//        List<HashMap<Object, Object>> rutesDisponibles = new ArrayList<>();
+//        for (Ruta r : tripUB.getRutesByLocalitat( name)) {
+//            HashMap<Object, Object> atributRuta = new HashMap<>();
+//            Integer id = r.getId();
+//            String nom = r.getNom();
+//            atributRuta.put("id", id);
+//            atributRuta.put("nom", nom);
+//
+//            rutesDisponibles.add(atributRuta);
+//        }
+//        return rutesDisponibles;
+    }
     public HashMap<Object, Object> getLocalitatByID(Integer id) throws Exception {
         Localitat loc = getLocalitatByIdUB(id);
         HashMap hashMap = new HashMap();

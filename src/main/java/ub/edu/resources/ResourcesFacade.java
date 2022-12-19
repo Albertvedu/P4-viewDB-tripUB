@@ -44,7 +44,7 @@ public class ResourcesFacade {
             initAllotjaments(); //success // Pressuposa que les etapes ja han estat creades
 
             initPerfilsPersones(); //success
-
+            getRelacioRutesComarques();   // iniciar atribut Relacio rutes comarques
         } catch (Exception e) {
             System.out.println("Exception: --> " + e.getMessage());
         }
@@ -112,7 +112,7 @@ public class ResourcesFacade {
             pp.addReserva(r);
         }
     }
-    private void initLocalitats() throws Exception  {
+    private boolean initLocalitats() throws Exception  {
         List<Localitat> llista = dataService.getAllLocalitats();
         for (Localitat l : llista) {
             Comarca c = tripUB.findComarca(l.getIdComarca());
@@ -127,6 +127,7 @@ public class ResourcesFacade {
                 r.setLocalitatDesti(l);
             }
         }
+        return tripUB.setLocalitats(llista);
     }
 
     private void initAllotjaments() throws Exception {
@@ -225,6 +226,10 @@ public class ResourcesFacade {
         //DB:
         List<Parell<Integer, Integer>> relacionsRC = dataService.getAllRelacioComarcasRutas();
         tripUB.setComarquesToRutes(relacionsRC);
+    }
+    public boolean getRelacioRutesComarques() throws Exception{
+        List<Parell<Integer, Integer>> relacionsRC = dataService.getAllRelacioComarcasRutas();
+        return tripUB.setLocalitatsRutes(relacionsRC);
     }
 
 
