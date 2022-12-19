@@ -204,11 +204,10 @@ public class EscenaMain extends Escena implements ObserverView {
         rutes_pane.setPrefHeight(layoutY);
         //Esborrem excursio_btn, que l'utilitzavem únicament com a referència per la mida dels botons
 
+        int elementsAnteriors = excursionsPaneChildren.size();  //Tamany llista BTN a esborrar
 
-        for (int i = 0; i < (excursionsPaneChildren.size() - listaRutas.size()); i++) {
-            excursionsPaneChildren.remove(i);
-            i--;
-        }
+        for (int i = 0; i < (elementsAnteriors - listaRutas.size()); i++)  // listaRutas... BTN nous mostrats.. no esborrar
+            excursionsPaneChildren.remove(0);
 
         excursionsPaneChildren.remove(ruta_btn);
     }
