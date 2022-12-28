@@ -1,5 +1,7 @@
 package ub.edu.resources;
 
+import ub.edu.controller.Controller;
+import ub.edu.controller.SessionMemory;
 import ub.edu.model.StatusType;
 import ub.edu.model.Seguretat;
 import ub.edu.model.*;
@@ -13,20 +15,27 @@ import ub.edu.resources.service.FactoryDB;
 
 public class ResourcesFacade {
 
+    private volatile static ResourcesFacade uniqueInstance;
     private AbstractFactoryData factory;      // Origen de les dades
     private DataService dataService;         // Connexio amb les dades
     private TripUB tripUB;                  // Model a tractar
-
     private ModelFacade modelFacade;
 
-    public ResourcesFacade(TripUB tripUB, ModelFacade modelFacade) {
-        // factory = new FactoryMOCK();
 
-        factory = new FactoryDB();
-        dataService = new DataService(factory);
-        this.tripUB = tripUB;
-        this.modelFacade = modelFacade;
+    public static ResourcesFacade getInstance(){
+        if (uniqueInstance == null) {
+            synchronized (ResourcesFacade.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new ResourcesFacade();
+                    uniqueInstance.tripUB = TripUB.getInstance();
+                    uniqueInstance.modelFacade = ModelFacade.getInstance();
+                    uniqueInstance.factory = new FactoryDB();
+                    uniqueInstance.dataService = new DataService(uniqueInstance.factory);
 
+                }
+            }
+        }
+        return uniqueInstance;
     }
 
     public void populateTripUB() {
@@ -44,7 +53,7 @@ public class ResourcesFacade {
             initAllotjaments(); //success // Pressuposa que les etapes ja han estat creades
 
             initPerfilsPersones(); //success
-
+            getRelacioRutesComarques();   // iniciar atribut Relacio rutes comarques
         } catch (Exception e) {
             System.out.println("Exception: --> " + e.getMessage());
         }
@@ -89,7 +98,7 @@ public class ResourcesFacade {
     }
 
     private void initVots() throws Exception  {
-        List<Vot> llista = dataService.getAllVots();
+        List<Vot> llista = getAllVots();
         for (Vot v: llista) {
             v.setRuta(tripUB.findRuta((v.getIdRuta())));
             Persona persona = modelFacade.findPersonaByCorreu(v.getCorreuPersona());
@@ -112,7 +121,7 @@ public class ResourcesFacade {
             pp.addReserva(r);
         }
     }
-    private void initLocalitats() throws Exception  {
+    private boolean initLocalitats() throws Exception  {
         List<Localitat> llista = dataService.getAllLocalitats();
         for (Localitat l : llista) {
             Comarca c = tripUB.findComarca(l.getIdComarca());
@@ -127,6 +136,7 @@ public class ResourcesFacade {
                 r.setLocalitatDesti(l);
             }
         }
+        return tripUB.setLocalitats(llista);
     }
 
     private void initAllotjaments() throws Exception {
@@ -226,6 +236,10 @@ public class ResourcesFacade {
         List<Parell<Integer, Integer>> relacionsRC = dataService.getAllRelacioComarcasRutas();
         tripUB.setComarquesToRutes(relacionsRC);
     }
+    public boolean getRelacioRutesComarques() throws Exception{
+        List<Parell<Integer, Integer>> relacionsRC = dataService.getAllRelacioComarcasRutas();
+        return tripUB.setLocalitatsRutes(relacionsRC);
+    }
 
 
     public StatusType addNewPersona(String correu, String nom, String cognoms, String dni, String password, Integer id_tripUB) throws Exception {
@@ -254,5 +268,10 @@ public class ResourcesFacade {
         modelFacade.addPersonaToGrup(idGrup, correuPersona);
         return dataService.addGrupFormatPersones(gfp);
     }
-
+    public List<Vot> getAllVots() throws Exception {
+        return dataService.getAllVots();
+    }
+    public boolean addNewVot(Vot vot) throws Exception {
+        return dataService.addVot(vot);
+    }
 }

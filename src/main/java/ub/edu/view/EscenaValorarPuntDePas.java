@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
-public class EscenaValorarPuntDePas extends Escena {
+public class  EscenaValorarPuntDePas extends Escena {
 
     public RadioButton radioButton_Group1_Like;
     public RadioButton radioButton_Group1_Dislike;
@@ -101,7 +101,7 @@ public class EscenaValorarPuntDePas extends Escena {
         });
     }
 
-    public void onButtonValorarClick(){
+    public void onButtonValorarClick() throws Exception {
         //enviar la valoracion punto de paso
         System.out.println("TODO: Entro a enviar una valoració de PdP");
         //TODO:
@@ -120,7 +120,21 @@ public class EscenaValorarPuntDePas extends Escena {
             if (radioButton_Group1_Like.isSelected()) valor = radioButton_Group1_Like.getText();
             else valor = radioButton_Group1_Dislike.getText();
         }
-        System.out.println("Valoració de tipus: "+ typeValorar+ " és: "+ valor);
+        if (radioButton_Group3_Text2.isSelected()) {
+            typeValorar = "Estrelles";
+            if (radioButton_Group2_Text1.isSelected()) puntdePasController.valorarPuntdePas(id_PuntDePas,"1", correu_persona, id_ruta);
+            if (radioButton_Group2_Text2.isSelected()) puntdePasController.valorarPuntdePas(id_PuntDePas,"2", correu_persona, id_ruta);
+            if (radioButton_Group2_Text3.isSelected()) puntdePasController.valorarPuntdePas(id_PuntDePas,"3", correu_persona, id_ruta);
+            if (radioButton_Group2_Text4.isSelected()) puntdePasController.valorarPuntdePas(id_PuntDePas,"4", correu_persona, id_ruta);
+            if (radioButton_Group2_Text5.isSelected()) puntdePasController.valorarPuntdePas(id_PuntDePas,"5", correu_persona, id_ruta);
+            //else valor = radioButton_Group2_Text2.getText();
+        }
+        System.out.println("Valoració XXXXXXXde tipus: "+ typeValorar+ " és: "+ valor);
+        //Aixo reacciona a valorar punt de pas
+        // i nomes recull si fas un like... sino surt en blanc
+        // es nomes per likes i deslikes
+        // buscar nom l'altre buttion
+
         /** Your Code Here **/
 
 

@@ -35,7 +35,7 @@ public class DAOTripUBDB implements DAOTripUB {
         List<TripUB> list = new ArrayList<>();
         for(Object obj: arr){
             HashMap<Object,Object> h = (HashMap<Object,Object>) obj;
-            TripUB t = new TripUB();
+            TripUB t = TripUB.getInstance();
 
             if(h.containsKey("id_tripUB")){t.setId((Integer) h.get("id_tripUB"));}
             else{t.setId(null);}

@@ -41,7 +41,7 @@ public class EscenaRutaDetalls extends Escena{
     }
 
     public void initData() throws Exception {
-        HashMap<Object,Object> rutaHashMap = controller.getRutaById(this.id_ruta);
+        HashMap<Object,Object> rutaHashMap = rutesController.getRutaById(this.id_ruta);
         String nom, dataCreacio="", descripcio, dificultat, tipusRuta;
         Integer id, durada, id_lloc_origen, id_lloc_desti;
         Double cost, distancia;
@@ -88,13 +88,13 @@ public class EscenaRutaDetalls extends Escena{
         }
         if(rutaHashMap.get("id_lloc_origen")!=null){
             id_lloc_origen = (Integer) rutaHashMap.get("id_lloc_origen");
-            HashMap<Object,Object> hasmap_localitat_origen = controller.getLocalitatByID(id_lloc_origen);
+            HashMap<Object,Object> hasmap_localitat_origen = localitatController.getLocalitatByID(id_lloc_origen);
             origen_btn.setText(""+hasmap_localitat_origen.get("id")+" | "+hasmap_localitat_origen.get("nom"));
             initObserverOrigen(id_lloc_origen);
         }
         if(rutaHashMap.get("id_lloc_desti")!=null){
             id_lloc_desti = (Integer) rutaHashMap.get("id_lloc_desti");
-            HashMap<Object,Object> hasmap_localitat_desti = controller.getLocalitatByID(id_lloc_desti);
+            HashMap<Object,Object> hasmap_localitat_desti = localitatController.getLocalitatByID(id_lloc_desti);
             desti_btn.setText(""+hasmap_localitat_desti.get("id")+" | "+hasmap_localitat_desti.get("nom"));
             initObserverDesti(id_lloc_desti);
         }
@@ -128,11 +128,11 @@ public class EscenaRutaDetalls extends Escena{
         });
     }
 
-    public void onBtnValorarClick() throws IOException {
+    public void onBtnValorarClick() throws Exception {
         //Nova finestra
         Escena escena = EscenaFactory.INSTANCE.creaEscena("valorarRuta-view", "Valorar Ruta: "+String.valueOf(this.id_ruta));
         EscenaValorarRuta escenaValorarRuta = ((EscenaValorarRuta)escena);
-        escenaValorarRuta.setController(controller);
+        escenaValorarRuta.setController();
         escenaValorarRuta.start();
     }
 
@@ -140,7 +140,7 @@ public class EscenaRutaDetalls extends Escena{
         //Nova finestra
         Escena escena = EscenaFactory.INSTANCE.creaEscena("tramDetalls-view", "Trams de la Ruta: "+String.valueOf(this.id_ruta));
         EscenaTramDetalls escenaTramDetalls = ((EscenaTramDetalls)escena);
-        escenaTramDetalls.setController(controller);
+        escenaTramDetalls.setController();
         escenaTramDetalls.start();
     }
 
@@ -148,7 +148,7 @@ public class EscenaRutaDetalls extends Escena{
         //Nova finestra
         Escena register = EscenaFactory.INSTANCE.creaEscena("tramAllotjaments-view", "Allotjaemnts de l'Etapa: "+id_localitzacio);
         EscenaAllotjaments escenaAllotjaments = ((EscenaAllotjaments) register);
-        register.setController(controller);
+        register.setController();
         this.controller.getSessionMemory().setIdLocalitzacio(id_localitzacio);
         escenaAllotjaments.start();
     }

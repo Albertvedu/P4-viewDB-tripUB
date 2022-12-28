@@ -1,4 +1,5 @@
 module ub.edu.cextremvista {
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
 

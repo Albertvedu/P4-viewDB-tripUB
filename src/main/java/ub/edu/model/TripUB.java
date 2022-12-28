@@ -1,22 +1,41 @@
 package ub.edu.model;
 
 import ub.edu.resources.dao.Parell;
+import ub.edu.view.ObserverView;
 
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class TripUB {
+public class TripUB implements SubjectModel{
+
+    private volatile static TripUB uniqueInstance;
     private Integer id;
     private XarxaPersones xarxaPersones;   // tripub
     private Map<Integer, Ruta> rutaMap; // tripub
     private Map<Integer, Comarca> comarcaMap; // tripub
     private Map<Integer, Grup> grups;
+    private Map<Integer, Localitat> localitatMap;
+    private List<Parell<Integer, Integer>>  relacioComarcaRuta;
+    private ArrayList observers;
 
-    public TripUB() {
-        grups = new HashMap<>();
-        comarcaMap = new HashMap<>();
-        rutaMap = new HashMap<>();
+
+    public static TripUB getInstance(){
+        if (uniqueInstance == null) {
+            synchronized (TripUB.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new TripUB();
+                    uniqueInstance.grups = new HashMap<>();
+                    uniqueInstance.comarcaMap = new HashMap<>();
+                    uniqueInstance.rutaMap = new HashMap<>();
+                    uniqueInstance.localitatMap = new HashMap<>();
+                    uniqueInstance.relacioComarcaRuta = new ArrayList<>();
+                    uniqueInstance.observers = new ArrayList<>();
+                }
+            }
+        }
+        return uniqueInstance;
     }
 
     public boolean setGrups(List<Grup> lg) {
@@ -34,6 +53,7 @@ public class TripUB {
                 .collect(Collectors.toMap(Ruta::getId, Function.identity())));
         return (this.rutaMap != null);
     }
+
 
     public boolean  setComarques(List<Comarca> listComarques) {
         comarcaMap =  (listComarques.stream()
@@ -83,6 +103,51 @@ public class TripUB {
         //no se puede hacer cast directo entre map->hasmap a una collection->list. Se debe instanciar una nueva arraylist
         return new ArrayList<Ruta>(this.rutaMap.values());
     }
+    public boolean setLocalitats(List<Localitat> listLocalitats) {
+        this.localitatMap =  (listLocalitats.stream()
+                .collect(Collectors.toMap(Localitat::getId, Function.identity())));
+        return (this.localitatMap != null);
+    }
+    public boolean setLocalitatsRutes(List<Parell<Integer, Integer>> relacionsRC){
+        relacioComarcaRuta = relacionsRC;
+        return this.relacioComarcaRuta != null;
+    }
+    public Map<Integer, Localitat> getLocalitats(){
+        return this.localitatMap;
+    }
+
+    public void getRutesByLocalitat(String name){
+        int idComarca= 0;
+        int idRuta = 0;
+        List<Ruta> listRutes = new ArrayList<>();
+
+        for (Localitat l: localitatMap.values()) {
+            if(l.getNom().equals(name))
+                idComarca = l.getIdComarca();
+        }
+
+        for (Parell<Integer, Integer> p: relacioComarcaRuta)
+            if (p.getElement1() == idComarca)
+                idRuta = p.getElement2();
+
+        for (Ruta r: getRutes())
+            if (r.getId() == idRuta)
+                listRutes.add(r);
+
+
+        List<HashMap<Object, Object>> rutesDisponibles = new ArrayList<>();
+        for (Ruta r : listRutes) {
+            HashMap<Object, Object> atributRuta = new HashMap<>();
+            Integer id = r.getId();
+            String nom = r.getNom();
+            atributRuta.put("id", id);
+            atributRuta.put("nom", nom);
+
+            rutesDisponibles.add(atributRuta);
+        }
+        rutaPaneChanged( rutesDisponibles);
+    }
+
 
     public XarxaPersones getXarxaPersones() {
         return xarxaPersones;
@@ -117,5 +182,33 @@ public class TripUB {
         }
         return rutes;
     }
+
+    @Override
+    public void registerObserver(ObserverView o) {
+        this.observers.add(o);
+        System.out.println("Observador TripUB registrat: " + o.toString());
+
+    }
+
+    @Override
+    public void removeObserver(ObserverView o) {
+        int i = observers.indexOf(o);
+        if (i >= 0) {
+            observers.remove(i);
+        }
+    }
+
+    @Override
+    public void notifyObservers(List<HashMap<Object, Object>> listRutes ) {
+        for (int i = 0; i < observers.size(); i++) {
+            ObserverView observer = (ObserverView) observers.get(i);
+            observer.update(listRutes);
+        }
+    }
+    public void rutaPaneChanged(List<HashMap<Object, Object>> listRutes) {
+
+        notifyObservers(listRutes);
+    }
+
 }
 
