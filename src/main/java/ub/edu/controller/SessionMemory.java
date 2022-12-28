@@ -1,6 +1,11 @@
 package ub.edu.controller;
 
+import ub.edu.model.ModelFacade;
+import ub.edu.model.TripUB;
+import ub.edu.resources.ResourcesFacade;
+
 public class SessionMemory {
+    private volatile static SessionMemory uniqueInstance;
     String correuPersona;
     Integer idGrup;
     Integer idRuta;
@@ -9,9 +14,18 @@ public class SessionMemory {
     Integer idPuntDePas;
     Integer idAllotjament;
 
-    public SessionMemory() {
+//    public SessionMemory() {
+//    }
+    public static SessionMemory getInstance(){
+        if(uniqueInstance == null){
+            synchronized (SessionMemory.class){
+                if (uniqueInstance == null) {
+                    uniqueInstance = new SessionMemory();
+                }
+            }
+        }
+        return uniqueInstance;
     }
-
     public String getCorreuPersona() {
         return correuPersona;
     }

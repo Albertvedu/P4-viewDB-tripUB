@@ -36,7 +36,7 @@ public class EscenaLogin extends Escena {
         String correu = login_correu.getText();
         String pwd = login_pwd.getText();
 
-        StatusType resultat = controller.loguejarSociStatus(correu, pwd);
+        StatusType resultat = loginController.loguejarSociStatus(correu, pwd);
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         if (resultat == StatusType.CORREU_INEXISTENT || resultat == StatusType.CONTRASENYA_INCORRECTA) {
@@ -77,7 +77,7 @@ public class EscenaLogin extends Escena {
         try {
             Escena main = EscenaFactory.INSTANCE.creaEscena("main-view", "TripUB Main View");
             EscenaMain escenaMain = ((EscenaMain) main);
-            main.setController(controller);
+            main.setController();
             this.controller.getSessionMemory().setCorreuPersona(correuPersona);
             escenaMain.start();
             stage.close();
@@ -91,11 +91,13 @@ public class EscenaLogin extends Escena {
         try {
             Escena register = EscenaFactory.INSTANCE.creaEscena("register-view", "TripUB Register View");
             EscenaRegister escenaRegister = ((EscenaRegister) register);
-            register.setController(controller);
+            register.setController();
             escenaRegister.start();
             stage.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

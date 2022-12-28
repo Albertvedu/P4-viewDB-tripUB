@@ -13,14 +13,18 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import ub.edu.controller.GrupsController;
+import ub.edu.model.PuntDePas;
+import ub.edu.model.SubjectModel;
+import ub.edu.model.SubjectModelPuntPas;
+import ub.edu.model.TripUB;
+import ub.edu.model.punPas_Strategy.PuntPasStrategy;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
-public class EscenaMain extends Escena {
+public class EscenaMain extends Escena implements ObserverView, ObserverViewPuntPas {
     private static final double ESPAI_ENTRE_BOTONS = 30;
 
     public Button ruta_btn;
@@ -31,17 +35,30 @@ public class EscenaMain extends Escena {
     public TableColumn nomColumn;
     public TableColumn valueColumn;
     public Text textPrincipal;
+    public Text textValoracions;
     public ComboBox comboBox_main_grup;
     public ImageView image_main;
     public Button button1_abajo_main;
     public Button button2_abajo_main;
     public Button button3_abajo_main;
+
     @FXML
     public ComboBox comboBox_main_comarca;
     public ComboBox comboBox_main_localitat;
 
     private String correuPersona;
     private Integer id_grup;
+    private SubjectModel tripUB;
+    private SubjectModelPuntPas puntdePasStartegy;
+
+
+    public void registrarseObservador(SubjectModel tripUB, SubjectModelPuntPas subjectModelPuntPas) {
+        this.tripUB = tripUB ;
+        this.tripUB.registerObserver(this);
+        this.puntdePasStartegy = subjectModelPuntPas;
+        this.puntdePasStartegy.registerObserver(this);
+
+    }
 
     public void start() throws Exception {
         this.correuPersona=this.controller.getSessionMemory().getCorreuPersona();
@@ -50,12 +67,16 @@ public class EscenaMain extends Escena {
         popularComboBoxComarques(); //success
         popularComboBoxLocalitat(); //success
         popularRutesPerNom();
+        registrarseObservador(TripUB.getInstance(), PuntPasStrategy.getInstance());                // Cridar per REGISTRARSE COM OBSERVADOR
+
         // TODO: Repensar donde se llamará este método
-        popularTopXYZValorades();
+        popularTopXYZValorades("Like");
+
+
     }
     public void asignarTextoPrincipal_Correo_y_Grupo(String correuPersona) throws Exception {
         //Paso1. Teniendo el correo de la persona, buscar el id del grupo.
-        ArrayList<HashMap<Object,Object>> resuListGrupHashMap= controller.getAllGrupsPerPersona(correuPersona);
+        ArrayList<HashMap<Object,Object>> resuListGrupHashMap= grupsController.getAllGrupsPerPersona(correuPersona);
         //Paso2. Recoger el grupo por su id.
         Integer firstidCB=null;
         Integer lastidCB=null;
@@ -89,6 +110,34 @@ public class EscenaMain extends Escena {
         image_main.setImage(image);
     }
 
+
+     @Override
+    public void update(List<HashMap<Object, Object>> listRutes) {
+        popularRutesPerLocalitat(listRutes);
+    }
+
+    @Override
+    public void update(Map<String, Integer> sortTopLike, String text) {
+            //a cada iteracion seleccionamos la tabla y sus items, y le añadimos una
+            //nueva instancia de la clase interna DataTop pasandole los parámetros en el constructor
+            // TODO: Repensar este código según el enunciado de cada grupo
+        // Borrar Items anteriors...
+        int elementsAborrar = tableTop10Valorades.getItems().size();
+        for (int i = elementsAborrar-1; i >=0 ; i--)
+            tableTop10Valorades.getItems().remove(i);
+
+        textValoracions.setText("Top-5 " + text);
+
+        // Mostrar items nous
+        Iterator<Map.Entry<String, Integer>> iterator = sortTopLike.entrySet().iterator();
+
+        while (iterator.hasNext()) {        // Recorre Map Relacio Comarca i Localitats
+            Map.Entry entry = (Map.Entry) iterator.next();
+            tableTop10Valorades.getItems().add(
+                    new DataTop((String) entry.getKey(), (Integer) entry.getValue()));
+        }
+    }
+
     /*
     * Aquesta inner Class la associarem als items de la taula en el mètode popularTopActivitatsFetes
     * Seguir aquesta estructura per popular taules
@@ -110,23 +159,27 @@ public class EscenaMain extends Escena {
         }
     }
 
-    private void popularTopXYZValorades() {
+    private void popularTopXYZValorades(String criteri) throws Exception {
         //La clase interna DataTop está justo arriba de esta función.
         nomColumn.setCellValueFactory(new PropertyValueFactory<DataTop, String>("nom"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<DataTop, String>("value"));
         // TODO: Dependiendo del grupo debereis mostrar unos datos u otros
         //por el momento ponemos unos datos dummy para que veais como se añaden
-        for (int i = 0; i < 10; i++){
-            //a cada iteracion seleccionamos la tabla y sus items, y le añadimos una
-            //nueva instancia de la clase interna DataTop pasandole los parámetros en el constructor
-            // TODO: Repensar este código según el enunciado de cada grupo
-            tableTop10Valorades.getItems().add(
-                    new DataTop("Nom - "+i, 20 - i*2));
-        }
+        puntdePasController.getTop10Likes(criteri);
+
+    }
+    private void popularTopXYZEstrelles() throws Exception {
+        //La clase interna DataTop está justo arriba de esta función.
+        nomColumn.setCellValueFactory(new PropertyValueFactory<DataTop, String>("nom"));
+        valueColumn.setCellValueFactory(new PropertyValueFactory<DataTop, String>("value"));
+        // TODO: Dependiendo del grupo debereis mostrar unos datos u otros
+        //por el momento ponemos unos datos dummy para que veais como se añaden
+        puntdePasController.getTopEstrellesRuta("Estrelles");
+
     }
 
     private void popularRutesPerNom(){
-        List<HashMap<Object,Object>> listaRutas = controller.getAllRutesPerNom();
+        List<HashMap<Object,Object>> listaRutas = rutesController.getAllRutesPerNom();
         if(listaRutas == null || listaRutas.size()==0){
             return;
         }
@@ -154,6 +207,43 @@ public class EscenaMain extends Escena {
         //Actualitzem la mida del pane que conté els botons perque es pugui fer scroll cap abaix si hi ha més botons dels que caben al pane
         rutes_pane.setPrefHeight(layoutY);
         //Esborrem excursio_btn, que l'utilitzavem únicament com a referència per la mida dels botons
+        excursionsPaneChildren.remove(ruta_btn);
+    }
+    private void popularRutesPerLocalitat(List<HashMap<Object, Object>> listaRutas){
+        if(listaRutas == null || listaRutas.size()==0){
+            return;
+        }
+        List<Node> excursionsPaneChildren = rutes_pane.getChildren();
+
+        double width = ruta_btn.getWidth();
+        double height = ruta_btn.getHeight();
+        double layoutX = ruta_btn.getLayoutX();
+        double layoutY = ruta_btn.getLayoutY();
+        //Instanciem un botó per cada ruta
+
+        String text;
+        Button new_btn;
+        Integer id;
+        String nom;
+        for (HashMap<Object,Object> ruta:listaRutas) {
+            id = (Integer) ruta.get("id");
+            nom = (String) ruta.get("nom");
+
+            text = id.toString()+" | "+nom;
+            new_btn = createRutaButton(id, text, width, height, layoutX, layoutY);
+            excursionsPaneChildren.add(new_btn);
+            layoutY += ESPAI_ENTRE_BOTONS;
+        }
+        //Actualitzem la mida del pane que conté els botons perque es pugui fer scroll cap abaix si hi ha més botons dels que caben al pane
+        rutes_pane.setPrefHeight(layoutY);
+        //Esborrem excursio_btn, que l'utilitzavem únicament com a referència per la mida dels botons
+
+
+        for (int i = 0; i < (excursionsPaneChildren.size() - listaRutas.size()); i++) {
+            excursionsPaneChildren.remove(i);
+            i--;
+        }
+
         excursionsPaneChildren.remove(ruta_btn);
     }
 
@@ -187,7 +277,7 @@ public class EscenaMain extends Escena {
         //Nova finestra
         Escena escena = EscenaFactory.INSTANCE.creaEscena("rutaDetalls-view", "Detalls ruta "+String.valueOf(id));
         EscenaRutaDetalls escenaRutaDetalls = ((EscenaRutaDetalls)escena);
-        escenaRutaDetalls.setController(controller);
+        escenaRutaDetalls.setController();
         this.controller.getSessionMemory().setIdRuta(id);
         escenaRutaDetalls.start();
     }
@@ -195,7 +285,7 @@ public class EscenaMain extends Escena {
     public void observable_comboBox_main_grup(){
         comboBox_main_grup.valueProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue classObject, String oldValue, String newValue) {
-                Integer idGrup = controller.getIdGrupByName(newValue);
+                Integer idGrup = grupsController.getIdGrupByName(newValue);
                 controller.getSessionMemory().setIdGrup(idGrup);
                 System.out.println("Filtrar contenido por grup: id: "+idGrup+" name: "+newValue);            }
         });
@@ -232,15 +322,17 @@ public class EscenaMain extends Escena {
     }
 
     public void popularComboBoxLocalitat() throws Exception {
-        List<HashMap<Object,Object>> localitats = controller.getAllLocalitats();
+        List<HashMap<Object,Object>> localitats = localitatController.getAllLocalitats();
         System.out.println("localitats: "+localitats);
         String s = comboBox_main_localitat.getPromptText();
-        comboBox_main_localitat.getItems().add(0,s);
+          comboBox_main_localitat.getItems().add(0,s);
 
         Integer id=null;
         String nom=null;
         for (HashMap<Object,Object> loc: localitats) {
-            if(loc.get("id")!=null){id=(Integer) loc.get("id");}
+            if(loc.get("id")!=null){
+                id=(Integer) loc.get("id");
+            }
             if(loc.get("nom")!=null){nom=(String) loc.get("nom");}
             //el index del comboBox debe empezar por 0
             //pero mas arriba en el 0 hemos añadido el default
@@ -257,6 +349,9 @@ public class EscenaMain extends Escena {
             @Override public void changed(ObservableValue classObject, String oldValue, String newValue) {
                 System.out.println("TODO: Filtrar rutas por Localitat: "+newValue);
                 //TODO: extensión de popular la lista de Rutas
+
+                rutesController.getAllRutesPerLocalitat(newValue);
+
             }
         });
     }
@@ -284,15 +379,18 @@ public class EscenaMain extends Escena {
         //OPCIÓN-2 -> asignar una funcion asociada al click del botón
         System.out.println("TODO: hacer reset filtros derecha en EscenaMain");
         //TODO
+        int elementsAborrar = tableTop10Valorades.getItems().size();
+        for (int i = elementsAborrar-1; i >=0 ; i--)
+            tableTop10Valorades.getItems().remove(i);
     }
 
-    public void onButton1Click(){
-        System.out.println("Presionado boton1");
+    public void onButton1Click() throws Exception {
+        popularTopXYZValorades("Like");
     }
-    public void onButton2Click(){
-        System.out.println("Presionado boton2");
+    public void onButton2Click() throws Exception {
+        popularTopXYZValorades("Unlike");
     }
-    public void onButton3Click() {
-        System.out.println("Presionado boton3");
+    public void onButton3Click() throws Exception {
+        popularTopXYZEstrelles();
     }
 }

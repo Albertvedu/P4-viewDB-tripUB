@@ -1,0 +1,173 @@
+@startuml
+
+title __PUNPAS_STRATEGY's Class Diagram__\n
+
+  namespace ub.edu.model.model {
+    namespace Engine {
+      namespace punPas_Strategy {
+        class ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy {
+            + PuntPasStrategy()
+            + llistarAll()
+            + llistarTopDesLikes()
+            + llistarTopEstrelles()
+            + llistarTopLikes()
+            + perDesLikes()
+            + perEstrelles()
+            + perLikes()
+        }
+      }
+    }
+  }
+  
+
+  namespace ub.edu.model.model {
+    namespace Engine {
+      namespace punPas_Strategy {
+        abstract class ub.edu.model.model_Engine.punPas_Strategy.ValorarPuntPas {
+            + ValorarPuntPas()
+            + setLlistarPuntPas()
+            + setValorarPuntPas()
+            # performaLlistar()
+            # performaLlistarAll()
+            # performaValorar()
+        }
+      }
+    }
+  }
+  
+
+  namespace ub.edu.model.model {
+    namespace Engine {
+      namespace punPas_Strategy {
+        interface ub.edu.model.model_Engine.punPas_Strategy.iLlistar {
+            {abstract} + llistar()
+            {abstract} + llistarAll()
+        }
+      }
+    }
+  }
+  
+
+  namespace ub.edu.model.model {
+    namespace Engine {
+      namespace punPas_Strategy {
+        interface ub.edu.model.model_Engine.punPas_Strategy.iValorar {
+            {abstract} + valorar()
+        }
+      }
+    }
+  }
+
+    namespace ub.edu.model.model {
+      namespace Engine {
+        namespace punPas_Strategy {
+          class ub.edu.model.model_Engine.punPas_Strategy.ValorarLikes {
+
+          }
+        }
+      }
+    }
+    namespace ub.edu.model.model {
+      namespace Engine {
+        namespace punPas_Strategy {
+          class ub.edu.model.model_Engine.punPas_Strategy.ValorarDesLikes {
+
+          }
+        }
+      }
+    }
+    namespace ub.edu.model.model {
+      namespace Engine {
+        namespace punPas_Strategy {
+          class ub.edu.model.model_Engine.punPas_Strategy.ValorarEstrelles {
+
+          }
+        }
+      }
+    }
+'    namespace ub.edu.model.model {
+'      namespace Engine {
+'        namespace punPas_Strategy {
+'          class PerDesLikes {
+'
+'          }
+'        }
+'      }
+'    }
+'    namespace ub.edu.model.model {
+'      namespace Engine {
+'        namespace punPas_Strategy {
+'          class PerLikes {
+'
+'          }
+'        }
+'      }
+'    }
+'    namespace ub.edu.model.model {
+'      namespace Engine {
+'        namespace punPas_Strategy {
+'          class PerEstrelles {
+'
+'          }
+'        }
+'      }
+'    }
+    namespace ub.edu.model.model {
+      namespace Engine {
+        namespace punPas_Strategy {
+          class ub.edu.model.model_Engine.punPas_Strategy.LlistarDesLikes {
+
+          }
+        }
+      }
+    }
+    namespace ub.edu.model.model {
+      namespace Engine {
+        namespace punPas_Strategy {
+          class ub.edu.model.model_Engine.punPas_Strategy.LlistarLikes {
+
+          }
+        }
+      }
+    }
+    namespace ub.edu.model.model {
+      namespace Engine {
+        namespace punPas_Strategy {
+          class ub.edu.model.model_Engine.punPas_Strategy.LlistarEstrelles {
+
+          }
+        }
+      }
+    }
+
+
+  ub.edu.model.model_Engine.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.model_Engine.punPas_Strategy.PerDesLike : perDesLike
+  ub.edu.model.model_Engine.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.model_Engine.punPas_Strategy.PerEstrelles : perEstrelles
+  ub.edu.model.model_Engine.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.model_Engine.punPas_Strategy.PerLikes : perLikes
+    ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.model_Engine.punPas_Strategy.LlistarEstrelles : perDesLike
+    ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.model_Engine.punPas_Strategy.LlistarLikes : perEstrelles
+    ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.model_Engine.punPas_Strategy.LlistarDesLikes : perLikes
+    ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy o--- ub.edu.model.model_Engine.punPas_Strategy.ValorarDesLikes : perDesLike
+    ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy o--- ub.edu.model.model_Engine.punPas_Strategy.ValorarEstrelles : perEstrelles
+    ub.edu.model.model_Engine.punPas_Strategy.PuntPasStrategy o--- ub.edu.model.model_Engine.punPas_Strategy.ValorarLikes : perLikes
+      ub.edu.model.model_Engine.punPas_Strategy.iLlistar <|.. ub.edu.model.model_Engine.punPas_Strategy.LlistarDesLikes : perDesLike
+      ub.edu.model.model_Engine.punPas_Strategy.iLlistar <|.. ub.edu.model.model_Engine.punPas_Strategy.LlistarEstrelles : perEstrelles
+      ub.edu.model.model_Engine.punPas_Strategy.iLlistar <|.. ub.edu.model.model_Engine.punPas_Strategy.LlistarLikes : perLikes
+  ub.edu.model.model_Engine.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.model_Engine.punPas_Strategy.iLlistar : illistar
+  ub.edu.model.model_Engine.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.model_Engine.punPas_Strategy.iValorar : ivalorar
+  ub.edu.model.model_Engine.punPas_Strategy.iValorar <|.. ub.edu.model.model_Engine.punPas_Strategy.ValorarLikes : valorar
+  ub.edu.model.model_Engine.punPas_Strategy.iValorar <|.. ub.edu.model.model_Engine.punPas_Strategy.ValorarDesLikes : valorar
+  ub.edu.model.model_Engine.punPas_Strategy.iValorar <|.. ub.edu.model.model_Engine.punPas_Strategy.ValorarEstrelles : valorar
+
+
+
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

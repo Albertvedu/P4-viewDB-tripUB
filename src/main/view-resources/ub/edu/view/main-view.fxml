@@ -42,13 +42,15 @@
       </ScrollPane>
 
       <!-- Texto de la derecha-->
-      <Text layoutX="650.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 5 (TODO)" textAlignment="CENTER">
+      <Text fx:id="textValoracions" layoutX="650.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Triar Like/Unlike" textAlignment="CENTER">
          <font><Font size="25.0" /></font>
       </Text>
 
       <!-- Botton reset_Filtros arriba en derecha -->
-      <Button fx:id="button_der_resetFiltres_main" layoutX="900.0" layoutY="110.0" mnemonicParsing="false" onAction="#onButtonDerResetFiltresClick" prefHeight="24.0" prefWidth="157.0" text="Reset Filtres Der" />
+      <Button fx:id="button_der_resetFiltres_main" layoutX="900.0" layoutY="70.0" mnemonicParsing="false" onAction="#onButtonDerResetFiltresClick" prefHeight="24.0" prefWidth="157.0" text="Reset Filtres Der" />
 
+      <!-- Botton valoracions Ruta / Punt de pas  arriba en derecha -->
+<!--      <ComboBox fx:id="button_der_ruta_puntpas_main" layoutX="850.0" layoutY="110.0"  onAction="#onButtonDerResetFiltresClick" prefHeight="24.0" prefWidth="237.0" promptText="Valoracions Punts de pas"  />-->
 
       <!-- Scroll de la derecha-->
       <ScrollPane hbarPolicy="NEVER" layoutX="550.0" layoutY="139.0" prefHeight="295.0" prefWidth="510.0">
@@ -71,9 +73,9 @@
       <ComboBox fx:id="comboBox_main_localitat"  layoutX="200.0" layoutY="444.0" promptText="Filtrar per Localitat"/>
 
       <!-- Botones de Criterios abajo derecha -->
-      <Button fx:id="button1_abajo_main" layoutX="550.0" layoutY="444.0" mnemonicParsing="false" onAction="#onButton1Click" prefHeight="24.0" prefWidth="157.0" text="Criteri1" />
-      <Button fx:id="button2_abajo_main" layoutX="730.0" layoutY="444.0" mnemonicParsing="false" onAction="#onButton2Click" prefHeight="24.0" prefWidth="157.0" text="Criteri2" />
-      <Button fx:id="button3_abajo_main" layoutX="905.0" layoutY="444.0" mnemonicParsing="false" onAction="#onButton3Click" prefHeight="24.0" prefWidth="157.0" text="Criteri3" />
+      <Button fx:id="button1_abajo_main" layoutX="550.0" layoutY="444.0" mnemonicParsing="false" onAction="#onButton1Click" prefHeight="24.0" prefWidth="157.0" text="Per Likes" />
+      <Button fx:id="button2_abajo_main" layoutX="730.0" layoutY="444.0" mnemonicParsing="false" onAction="#onButton2Click" prefHeight="24.0" prefWidth="157.0" text="Per Unlikes" />
+      <Button fx:id="button3_abajo_main" layoutX="905.0" layoutY="444.0" mnemonicParsing="false" onAction="#onButton3Click" prefHeight="24.0" prefWidth="157.0" text="Per Estrelles" />
 
    </children>
 </AnchorPane>

@@ -34,8 +34,8 @@ public class EscenaTramEtapaDetalls extends Escena{
         //coger los 2 punt de pas y los 2 localitats asociadas
         Integer id_etapa_origen = (Integer) hashMaptramTrack.get("id_etapa_origen");
         Integer id_etapa_desti = (Integer) hashMaptramTrack.get("id_etapa_desti");
-        HashMap<Object,Object> hashMap_TramEtapa_Origen = controller.getLocalitat_y_EtapaByID(id_etapa_origen);
-        HashMap<Object,Object> hashMap_TramEtapa_Desti = controller.getLocalitat_y_EtapaByID(id_etapa_desti);
+        HashMap<Object,Object> hashMap_TramEtapa_Origen = localitatController.getLocalitat_y_EtapaByID(id_etapa_origen);
+        HashMap<Object,Object> hashMap_TramEtapa_Desti = localitatController.getLocalitat_y_EtapaByID(id_etapa_desti);
         //los hashmaps contienen: id,nom
         //asginar a los botones el text correspodniente
         String sOrigen = hashMap_TramEtapa_Origen.get("id").toString() + " | " + hashMap_TramEtapa_Origen.get("nom");
@@ -73,7 +73,7 @@ public class EscenaTramEtapaDetalls extends Escena{
     private void mostrarFinestraTramTrackPdPDetalls(Integer id_localitzacio) throws Exception {
         Escena register = EscenaFactory.INSTANCE.creaEscena("tramAllotjaments-view", "Allotjaemnts de l'Etapa: "+this.id_tramEtapa);
         EscenaAllotjaments escenaAllotjaments = ((EscenaAllotjaments) register);
-        register.setController(controller);
+        register.setController();
         this.controller.getSessionMemory().setIdLocalitzacio(id_localitzacio);
         escenaAllotjaments.start();
     }
