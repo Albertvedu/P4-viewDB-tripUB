@@ -5,6 +5,7 @@ import ub.edu.model.Opinio;
 import ub.edu.model.PuntDePas;
 import ub.edu.resources.RessourceFacadePuntdePas;
 
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -23,7 +24,7 @@ public class LikesPuntdePas implements iLlistar {
 
     @Override
     public Map<String, Integer> llistar(String criteri) throws Exception {
-        int top = 5;
+        final int TOP = 5;
         List<Opinio> listaOpinions =  sessionMemory.getListOpinions();
         List<PuntDePas> puntPasList = ressourceFacadePuntdePas.getAllPuntdePas();
         int idGrup = sessionMemory.getIdGrup();
@@ -53,8 +54,13 @@ public class LikesPuntdePas implements iLlistar {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         // Deixa les primeras 5 valoracions, ho demés ho esborra
-        for (int i = top; i < sortTopLike.size(); i++)
-            sortTopLike.remove(i);
+        int contar = 0;
+        for (Map.Entry<String, Integer> map: sortTopLike.entrySet()){
+            contar++;
+            if (contar > TOP)
+                sortTopLike.remove(map.getKey());
+        }
+
         return sortTopLike;
     }
 

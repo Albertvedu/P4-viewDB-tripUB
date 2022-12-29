@@ -2,7 +2,7 @@
 
 title __EXTENDCLASSES's Class Diagram__\n
 
-  namespace  {
+
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -14,10 +14,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -29,10 +26,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -44,10 +38,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -59,10 +50,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -74,10 +62,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -89,10 +74,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -104,10 +86,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
-  
 
-  namespace  {
     namespace b.edu {
       namespace model {
         namespace punPas_Strategy {
@@ -119,7 +98,7 @@ title __EXTENDCLASSES's Class Diagram__\n
         }
       }
     }
-  }
+
   
 
   ub.edu.model.punPas_Strategy.extendClasses.ListEstrellesPuntdePas -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas

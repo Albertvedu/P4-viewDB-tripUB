@@ -29,10 +29,10 @@ public class ModelFacanaPuntPas {
         puntPasStrategy.llistarLikes(llistarPer, criteri);
     }
     public void getTopEstrellesRuta( String llistarPer, String criteri) throws Exception {
-        puntPasStrategy.getTopEstrellesRutes(llistarPer, criteri);
+        puntPasStrategy.getTopEstrelles(llistarPer, criteri);
     }
     public void getTopEstrellesPuntPas( String llistarPer, String criteri) throws Exception {
-        puntPasStrategy.getTopEstrellesPuntPas(llistarPer, criteri);
+        puntPasStrategy.getTopEstrelles(llistarPer, criteri);
     }
     public boolean valorarPuntdePas() throws Exception {
         puntPasStrategy.perEstrelles();

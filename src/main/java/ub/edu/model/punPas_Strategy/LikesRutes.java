@@ -2,6 +2,8 @@ package ub.edu.model.punPas_Strategy;
 
 import ub.edu.controller.SessionMemory;
 import ub.edu.model.Vot;
+import ub.edu.resources.ResourcesFacade;
+import ub.edu.resources.RessourceFacadePuntdePas;
 import ub.edu.resources.RessourceFacadeRuta;
 import ub.edu.resources.dao.Quartet;
 
@@ -45,7 +47,6 @@ public class LikesRutes implements iLlistar {
                     } else
                         contarUnlike[vot.getIdRuta()] += 1;
                 }
-
             }
         }
 
@@ -73,8 +74,12 @@ public class LikesRutes implements iLlistar {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         // Deixa les primeras 5 valoracions, ho demés ho esborra
-        for (int i = TOP; i < sortTopLike.size(); i++)
-            sortTopLike.remove(i);
+        int contar = 0;
+        for (Map.Entry<String, Integer> map: sortTopLike.entrySet()){
+            contar++;
+            if (contar > TOP)
+                sortTopLike.remove(map.getKey());
+        }
 
         return sortTopLike;
     }

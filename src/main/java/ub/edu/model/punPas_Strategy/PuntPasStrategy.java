@@ -1,7 +1,6 @@
 package ub.edu.model.punPas_Strategy;
 
-import ub.edu.model.Ruta;
-import ub.edu.model.SubjectModelPuntPas;
+import ub.edu.model.*;
 import ub.edu.model.punPas_Strategy.extendClasses.PerDesLike;
 import ub.edu.model.punPas_Strategy.extendClasses.PerEstrelles;
 import ub.edu.model.punPas_Strategy.extendClasses.PerEstrellesRuta;
@@ -9,8 +8,7 @@ import ub.edu.model.punPas_Strategy.extendClasses.PerLikes;
 import ub.edu.view.ObserverView;
 import ub.edu.view.ObserverViewPuntPas;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 
 public class PuntPasStrategy implements SubjectModelPuntPas {
     private volatile static PuntPasStrategy uniqueInstance;
@@ -42,18 +40,7 @@ public class PuntPasStrategy implements SubjectModelPuntPas {
         return uniqueInstance;
     }
 
-
-    public void getTopEstrellesRutes(String llistaPer, String criteri) throws Exception {
-        //Pre: Amb l'String llistaPer, obté la classe <extends> i la interfeace iLListar, tant per Rutes o Punt de Pas
-
-        llistaPer =  llistaPer.replace(" ","");  // Treu espais del nom que ve del ComboBox
-        veurePer = simpleFactory.obtenirClasseAbstract("ListEstrelles" +llistaPer);
-        String classe = "LlistarEstrelles" + llistaPer;
-        veurePer.setLlistarPuntPas(simpleFactory2.obtenirClasseILlistar(classe));
-        Map<String, Integer> sortTopLike = veurePer.performaLlistar(criteri);
-        modelChanged(sortTopLike, criteri);
-    }
-    public void getTopEstrellesPuntPas(String llistaPer, String criteri) throws Exception {
+    public void getTopEstrelles(String llistaPer, String criteri) throws Exception {
         //Pre: Amb l'String llistaPer, obté la classe <extends> i la interfeace iLListar, tant per Rutes o Punt de Pas
 
         llistaPer =  llistaPer.replace(" ","");  // Treu espais del nom que ve del ComboBox
@@ -82,15 +69,15 @@ public class PuntPasStrategy implements SubjectModelPuntPas {
         return true;
     }
     public boolean perDesLikes() throws Exception {
-          perDesLike.setValorarPuntPas(new ValorarDeslike());
-          perDesLike.performaValorar();
+        perDesLike.setValorarPuntPas(new ValorarDeslike());
+        perDesLike.performaValorar();
         llistarLikes("Punt de Pas", "Unlike");
         return true;
     }
     public void perEstrelles() throws Exception {
         perEstrelles.setValorarPuntPas(new ValorarEstrelles());
         perEstrelles.performaValorar();
-        getTopEstrellesRutes("Punt de Pas", "Estrelles");
+        getTopEstrelles("Punt de Pas", "Estrelles");
     }
     public void valorarRuta() throws Exception {
         perEstrellesRuta.setValorarPuntPas((new ValorarRuta()));
@@ -100,7 +87,7 @@ public class PuntPasStrategy implements SubjectModelPuntPas {
     public void valorarRutaEstrelles() throws Exception {
         perEstrellesRuta.setValorarPuntPas((new ValorarRuta()));
         perEstrellesRuta.performaValorar();
-        getTopEstrellesRutes("Rutes", "Estrelles");
+        getTopEstrelles("Rutes", "Estrelles");
     }
 
     @Override

@@ -2,6 +2,7 @@ package ub.edu.model;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TramEtapa  extends Tram{

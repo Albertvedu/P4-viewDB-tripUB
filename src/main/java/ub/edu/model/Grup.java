@@ -1,6 +1,8 @@
 package ub.edu.model;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Grup {
     private Integer id;

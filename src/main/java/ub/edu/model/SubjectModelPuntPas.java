@@ -2,6 +2,7 @@ package ub.edu.model;
 
 import ub.edu.view.ObserverView;
 
+
 import java.util.Map;
 
 public interface SubjectModelPuntPas {

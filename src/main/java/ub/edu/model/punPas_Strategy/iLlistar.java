@@ -6,4 +6,5 @@ import java.util.Map;
 
 public interface iLlistar {
     Map<String, Integer> llistar(String criteri) throws Exception;
+
 }

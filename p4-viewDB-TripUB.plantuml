@@ -2,180 +2,570 @@
 
 title __P4-VIEWDB-TRIPUB's Class Diagram__\n
 
+    namespace ub.edu {
       class ub.edu.AppMain {
       }
+    }
 
+  
+
+    namespace ub.edu {
       namespace controller {
         class ub.edu.controller.Controller {
         }
       }
+    }
 
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.ControllerCrearVista {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.GrupsController {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.LocalitatController {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.LoginController {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.PuntdePasController {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.RegisterController {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace controller {
+        class ub.edu.controller.RutesController {
+        }
+      }
+    }
+
+    namespace ub.edu {
       namespace controller {
         class ub.edu.controller.SessionMemory {
         }
       }
+    }
 
-
-
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Allotjament {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Bicicleta {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Camping {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.CasaRural {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Comarca {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Cotxe {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Etapa {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Grup {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Hotel {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Localitat {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.ModelFacade {
         }
       }
+    }
 
+    namespace ub.edu {
+      namespace model {
+        class ub.edu.model.ModelFacanaLocalitat {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        class ub.edu.model.ModelFacanaPuntPas {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        class ub.edu.model.ModelFacanaRuta {
+        }
+      }
+    }
+
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Opinio {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.PerfilPersona {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Persona {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.PuntDePas {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Refugi {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Reserva {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Ruta {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Seguretat {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         enum StatusType {
         }
       }
+    }
 
+    namespace ub.edu {
+      namespace model {
+        interface ub.edu.model.SubjectModel {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        interface ub.edu.model.SubjectModelPuntPas {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        class ub.edu.model.Textes {
+        }
+      }
+    }
+
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Tram {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.TramEtapa {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.TramTrack {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Transport {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.TripUB {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.Vot {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.XarxaPersones {
         }
       }
+    }
 
+    namespace ub.edu {
       namespace model {
         class ub.edu.model.aPeu {
         }
       }
+    }
 
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LikesPuntdePas {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LikesRutes {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LlistarEstrellesRutes {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.PuntPasStrategy {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          enum SimpleFactory {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          enum SimpleFactory2 {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarDeslike {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarEstrelles {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarLikes {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          abstract class ub.edu.model.punPas_Strategy.ValorarPuntPas {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarRuta {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.ListEstrellesPuntdePas {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.ListEstrellesRutes {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.ListLikesPuntdePas {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.ListLikesRutes {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.PerDesLike {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.PerEstrelles {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.PerEstrellesRuta {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          namespace extendClasses {
+            class ub.edu.model.punPas_Strategy.extendClasses.PerLikes {
+            }
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          interface ub.edu.model.punPas_Strategy.iLlistar {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          interface ub.edu.model.punPas_Strategy.iValorar {
+          }
+        }
+      }
+    }
+
+    namespace ub.edu {
       namespace resources {
         class ub.edu.resources.ResourcesFacade {
         }
       }
+    }
 
+    namespace ub.edu {
+      namespace resources {
+        class ub.edu.resources.RessourceFacadePuntdePas {
+        }
+      }
+    }
+
+    namespace ub.edu {
+      namespace resources {
+        class ub.edu.resources.RessourceFacadeRuta {
+        }
+      }
+    }
+
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           interface ub.edu.resources.dao.DAO {
           }
         }
       }
+    }
 
+    namespace ub.edu {
+      namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
             interface ub.edu.resources.dao.DAO_Interfaces.DAOAPeu {
             }
           }
         }
+      }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -184,7 +574,9 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -193,7 +585,9 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -202,7 +596,9 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -211,7 +607,9 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -220,7 +618,9 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -229,7 +629,9 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -238,18 +640,20 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
           }
         }
       }
+    }
 
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
             interface ub.edu.resources.dao.DAO_Interfaces.DAOGrup {
-              }
             }
           }
         }
+      }
+    }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -260,8 +664,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -272,8 +675,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -284,7 +686,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -295,8 +697,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -307,8 +708,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -319,8 +719,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -331,8 +730,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -343,8 +741,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -355,8 +752,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -367,8 +763,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -379,8 +774,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -391,8 +785,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -403,8 +796,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -415,8 +807,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -427,8 +818,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -439,8 +829,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -451,8 +840,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -463,8 +851,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -475,8 +862,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -487,8 +873,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DAO_Interfaces {
@@ -499,8 +884,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -511,8 +895,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -523,8 +906,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -535,8 +917,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -547,8 +928,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -559,8 +939,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -571,8 +950,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -583,7 +961,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -594,8 +972,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -606,8 +983,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -618,8 +994,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -630,8 +1005,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -642,8 +1016,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -654,8 +1027,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -666,7 +1038,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -677,8 +1049,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -689,8 +1060,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -701,8 +1071,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -713,8 +1082,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -725,8 +1093,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -737,8 +1104,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -749,8 +1115,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -761,7 +1126,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -772,8 +1137,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -784,8 +1148,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -796,8 +1159,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -808,8 +1170,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -820,8 +1181,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -832,8 +1192,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.DAO_Implementations {
@@ -844,8 +1203,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace DB.Data {
@@ -856,8 +1214,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace MOCK {
@@ -868,8 +1225,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace MOCK {
@@ -880,8 +1236,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace MOCK {
@@ -892,8 +1247,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           namespace MOCK {
@@ -904,8 +1258,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           class ub.edu.resources.dao.Parell {
@@ -914,8 +1267,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           class ub.edu.resources.dao.Quartet {
@@ -924,8 +1276,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace dao {
           class ub.edu.resources.dao.Triplet {
@@ -934,8 +1285,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace service {
           interface ub.edu.resources.service.AbstractFactoryData {
@@ -944,8 +1294,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace service {
           class ub.edu.resources.service.DataService {
@@ -954,8 +1303,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace service {
           class ub.edu.resources.service.FactoryDB {
@@ -964,8 +1312,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace resources {
         namespace service {
           class ub.edu.resources.service.FactoryMOCK {
@@ -974,124 +1321,144 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         abstract class ub.edu.view.Escena {
         }
       }
     }
 
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaAllotjaments {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         enum EscenaFactory {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaLogin {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaMain {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaRegister {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaReservarAllotjament {
         }
       }
     }
 
-    namespace b.edu {
+  
+
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaRutaDetalls {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaTramDetalls {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaTramEtapaDetalls {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaTramTrackPdPDetalls {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaValorarPuntDePas {
         }
       }
     }
 
-
-    namespace b.edu {
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.EscenaValorarRuta {
         }
       }
     }
 
+    namespace ub.edu {
+      namespace view {
+        interface ub.edu.view.ObserverView {
+        }
+      }
+    }
 
-    namespace b.edu {
+    namespace ub.edu {
+      namespace view {
+        interface ub.edu.view.ObserverViewPuntPas {
+        }
+      }
+    }
+
+    namespace ub.edu {
       namespace view {
         class ub.edu.view.Vista {
         }
       }
     }
 
+  
 
   ub.edu.AppMain -up-|> javafx.application.Application
-  ub.edu.AppMain o-- ub.edu.controller.Controller : controller
+  ub.edu.AppMain o-- ub.edu.controller.ControllerCrearVista : controllerVista
   ub.edu.AppMain o-- ub.edu.view.Vista : vista
   ub.edu.controller.Controller o-- ub.edu.resources.ResourcesFacade : inicialitzador
   ub.edu.controller.Controller o-- ub.edu.model.ModelFacade : modelFacade
   ub.edu.controller.Controller o-- ub.edu.controller.SessionMemory : sessionMemory
   ub.edu.controller.Controller o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.ControllerCrearVista o-- ub.edu.view.Vista : vista
+  ub.edu.controller.GrupsController o-- ub.edu.resources.ResourcesFacade : inicialitzador
+  ub.edu.controller.GrupsController o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.GrupsController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.LocalitatController o-- ub.edu.model.ModelFacanaLocalitat : modelFacanaLocalitat
+  ub.edu.controller.LocalitatController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.LoginController o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.LoginController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.PuntdePasController o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
+  ub.edu.controller.PuntdePasController o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.controller.PuntdePasController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.RegisterController o-- ub.edu.resources.ResourcesFacade : inicialitzador
+  ub.edu.controller.RegisterController o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.RegisterController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.RutesController o-- ub.edu.model.ModelFacanaRuta : modelFacanaRuta
   ub.edu.model.Allotjament o-- ub.edu.model.Etapa : etapa
   ub.edu.model.Bicicleta -up-|> ub.edu.model.Transport
   ub.edu.model.Camping -up-|> ub.edu.model.Allotjament
@@ -1100,7 +1467,15 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
   ub.edu.model.Etapa -up-|> ub.edu.model.Localitat
   ub.edu.model.Hotel -up-|> ub.edu.model.Allotjament
   ub.edu.model.Localitat o-- ub.edu.model.Comarca : comarca
+  ub.edu.model.ModelFacade o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
   ub.edu.model.ModelFacade o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.ModelFacanaLocalitat o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.model.ModelFacanaLocalitat o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
+  ub.edu.model.ModelFacanaLocalitat o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.ModelFacanaPuntPas o-- ub.edu.model.punPas_Strategy.PuntPasStrategy : puntPasStrategy
+  ub.edu.model.ModelFacanaPuntPas o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.ModelFacanaRuta o-- ub.edu.model.punPas_Strategy.PuntPasStrategy : puntPasStrategy
+  ub.edu.model.ModelFacanaRuta o-- ub.edu.model.TripUB : tripUB
   ub.edu.model.Opinio o-- ub.edu.model.Persona : persona
   ub.edu.model.Opinio o-- ub.edu.model.PuntDePas : puntDePas
   ub.edu.model.Persona o-- ub.edu.model.PerfilPersona : perfil
@@ -1116,15 +1491,69 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
   ub.edu.model.TramTrack -up-|> ub.edu.model.Tram
   ub.edu.model.TramTrack o-- ub.edu.model.PuntDePas : puntDePasDesti
   ub.edu.model.TramTrack o-- ub.edu.model.PuntDePas : puntDePasOrigen
+  ub.edu.model.TripUB .up.|> ub.edu.model.SubjectModel
   ub.edu.model.TripUB o-- ub.edu.model.XarxaPersones : xarxaPersones
   ub.edu.model.Vot o-- ub.edu.model.Grup : grup
   ub.edu.model.Vot o-- ub.edu.model.Persona : persona
   ub.edu.model.Vot o-- ub.edu.model.Ruta : ruta
   ub.edu.model.aPeu -up-|> ub.edu.model.Transport
+  ub.edu.model.punPas_Strategy.LikesPuntdePas .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LikesPuntdePas o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.model.punPas_Strategy.LikesPuntdePas o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.LikesRutes .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LikesRutes o-- ub.edu.resources.RessourceFacadeRuta : ressourceFacadeRuta
+  ub.edu.model.punPas_Strategy.LikesRutes o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.LlistarEstrellesRutes .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LlistarEstrellesRutes o-- ub.edu.resources.RessourceFacadeRuta : ressourceFacadeRuta
+  ub.edu.model.punPas_Strategy.LlistarEstrellesRutes o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.PuntPasStrategy .up.|> ub.edu.model.SubjectModelPuntPas
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerDesLike : perDesLike
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerEstrelles : perEstrelles
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerEstrellesRuta : perEstrellesRuta
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerLikes : perLikes
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.SimpleFactory : simpleFactory
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.SimpleFactory2 : simpleFactory2
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.ValorarPuntPas : veurePer
+  ub.edu.model.punPas_Strategy.ValorarDeslike .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarDeslike o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarDeslike o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.ValorarEstrelles .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.punPas_Strategy.ValorarLikes .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarLikes o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarLikes o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.punPas_Strategy.iLlistar : illistar
+  ub.edu.model.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.punPas_Strategy.iValorar : ivalorar
+  ub.edu.model.punPas_Strategy.ValorarRuta .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarRuta o-- ub.edu.resources.RessourceFacadeRuta : ressourceFacadeRuta
+  ub.edu.model.punPas_Strategy.ValorarRuta o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarRuta o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.extendClasses.ListEstrellesPuntdePas -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.ListEstrellesRutes -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.ListLikesPuntdePas -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.ListLikesRutes -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.PerDesLike -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.PerEstrelles -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.PerEstrellesRuta -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
+  ub.edu.model.punPas_Strategy.extendClasses.PerLikes -up-|> ub.edu.model.punPas_Strategy.ValorarPuntPas
   ub.edu.resources.ResourcesFacade o-- ub.edu.resources.service.DataService : dataService
   ub.edu.resources.ResourcesFacade o-- ub.edu.resources.service.AbstractFactoryData : factory
   ub.edu.resources.ResourcesFacade o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.resources.ResourcesFacade o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
+  ub.edu.resources.ResourcesFacade o-- ub.edu.controller.SessionMemory : sessionMemory
   ub.edu.resources.ResourcesFacade o-- ub.edu.model.TripUB : tripUB
+  ub.edu.resources.RessourceFacadePuntdePas o-- ub.edu.resources.service.DataService : dataService
+  ub.edu.resources.RessourceFacadePuntdePas o-- ub.edu.resources.service.AbstractFactoryData : factory
+  ub.edu.resources.RessourceFacadePuntdePas o-- ub.edu.model.TripUB : tripUB
+  ub.edu.resources.RessourceFacadeRuta o-- ub.edu.resources.service.DataService : dataService
+  ub.edu.resources.RessourceFacadeRuta o-- ub.edu.resources.service.AbstractFactoryData : factory
+  ub.edu.resources.RessourceFacadeRuta o-- ub.edu.model.TripUB : tripUB
   ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOAPeu
   ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB : daoTransportDB
   ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
@@ -1242,9 +1671,20 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
   ub.edu.resources.service.FactoryDB .up.|> ub.edu.resources.service.AbstractFactoryData
   ub.edu.resources.service.FactoryMOCK .up.|> ub.edu.resources.service.AbstractFactoryData
   ub.edu.view.Escena o-- ub.edu.controller.Controller : controller
+  ub.edu.view.Escena o-- ub.edu.controller.GrupsController : grupsController
+  ub.edu.view.Escena o-- ub.edu.controller.LocalitatController : localitatController
+  ub.edu.view.Escena o-- ub.edu.controller.LoginController : loginController
+  ub.edu.view.Escena o-- ub.edu.controller.PuntdePasController : puntdePasController
+  ub.edu.view.Escena o-- ub.edu.controller.RegisterController : registerController
+  ub.edu.view.Escena o-- ub.edu.controller.RutesController : rutesController
   ub.edu.view.EscenaAllotjaments -up-|> ub.edu.view.Escena
   ub.edu.view.EscenaLogin -up-|> ub.edu.view.Escena
+  ub.edu.view.EscenaMain .up.|> ub.edu.view.ObserverView
+  ub.edu.view.EscenaMain .up.|> ub.edu.view.ObserverViewPuntPas
   ub.edu.view.EscenaMain -up-|> ub.edu.view.Escena
+  ub.edu.view.EscenaMain o-- ub.edu.model.SubjectModelPuntPas : puntdePasStartegy
+  ub.edu.view.EscenaMain o-- ub.edu.model.Textes : textes
+  ub.edu.view.EscenaMain o-- ub.edu.model.SubjectModel : tripUB
   ub.edu.view.EscenaRegister -up-|> ub.edu.view.Escena
   ub.edu.view.EscenaReservarAllotjament -up-|> ub.edu.view.Escena
   ub.edu.view.EscenaRutaDetalls -up-|> ub.edu.view.Escena
@@ -1253,7 +1693,7 @@ title __P4-VIEWDB-TRIPUB's Class Diagram__\n
   ub.edu.view.EscenaTramTrackPdPDetalls -up-|> ub.edu.view.Escena
   ub.edu.view.EscenaValorarPuntDePas -up-|> ub.edu.view.Escena
   ub.edu.view.EscenaValorarRuta -up-|> ub.edu.view.Escena
-  ub.edu.view.Vista o-- ub.edu.controller.Controller : controller
+  ub.edu.view.EscenaValorarRuta o-- ub.edu.controller.RutesController : rutesController
 
 
 right footer

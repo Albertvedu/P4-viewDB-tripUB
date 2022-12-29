@@ -1,9 +1,11 @@
 package ub.edu.model.punPas_Strategy;
 
 
+
 import ub.edu.controller.SessionMemory;
 import ub.edu.model.Ruta;
 import ub.edu.model.Vot;
+
 import ub.edu.resources.RessourceFacadeRuta;
 
 import java.util.*;
@@ -20,6 +22,7 @@ public class LlistarEstrellesRutes implements iLlistar {
 
     @Override
     public Map<String, Integer> llistar( String criteri) throws Exception {
+        final int TOP = 10;
         List<Vot> listVots = sessionMemory.getLlistaVots();
         int idGrup = sessionMemory.getIdGrup();
         List<Ruta> listRutes = ressourceFacadeRuta.getAllRutes();
@@ -59,8 +62,12 @@ public class LlistarEstrellesRutes implements iLlistar {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         // Deixa les primeras 5 valoracions, ho demés ho esborra
-        for (int i = 10; i < sortTopLike.size(); i++)
-            sortTopLike.remove(i);
+        int contar = 0;
+        for (Map.Entry<String, Integer> map: sortTopLike.entrySet()){
+            contar++;
+            if (contar > TOP)
+                sortTopLike.remove(map.getKey());
+        }
         return sortTopLike;
     }
 

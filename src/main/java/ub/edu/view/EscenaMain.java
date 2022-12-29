@@ -135,12 +135,13 @@ public class EscenaMain extends Escena implements ObserverView, ObserverViewPunt
     public void update(Map<String, Integer> sortTopLike, String text) {
             //a cada iteracion seleccionamos la tabla y sus items, y le añadimos una
             //nueva instancia de la clase interna DataTop pasandole los parámetros en el constructor
-            // TODO: Repensar este código según el enunciado de cada grupo
+
         // Borrar Items anteriors...
         int elementsAborrar = tableTop5Valorades.getItems().size();
         for (int i = elementsAborrar-1; i >=0 ; i--)
             tableTop5Valorades.getItems().remove(i);
 
+        // Text del titol del que mostra la finestra Like-Unlike-Estrelles o Per grups
         if (text.equals("Estrelles") && controller.getSessionMemory().getOpcioVeure().equals("Rutes"))    //  Mostra text menu
             textValoracions.setText("Top-5 " + text + " del Grup");
         else textValoracions.setText("Top-5 " + text);

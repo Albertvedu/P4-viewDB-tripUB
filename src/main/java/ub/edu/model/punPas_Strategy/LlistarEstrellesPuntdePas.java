@@ -19,6 +19,7 @@ public class LlistarEstrellesPuntdePas implements iLlistar{
 
     @Override
     public Map<String, Integer> llistar(String criteri) throws Exception {
+        final int TOP = 10;
         List<Opinio> listOpinions = sessionMemory.getListOpinions();
         List<PuntDePas> puntPasList = ressourceFacadePuntdePas.getAllPuntdePas();
         Map<String, Integer> contarEstrelles = new HashMap<>();
@@ -50,8 +51,12 @@ public class LlistarEstrellesPuntdePas implements iLlistar{
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         // Deixa les primeras 10 valoracions, ho demés ho esborra
-        for (int i = 10; i < sortTopLike.size(); i++)
-            sortTopLike.remove(i);
+        int contar = 0;
+        for (Map.Entry<String, Integer> map: sortTopLike.entrySet()){
+            contar++;
+            if (contar > TOP)
+                sortTopLike.remove(map.getKey());
+        }
         return sortTopLike;
     }
 

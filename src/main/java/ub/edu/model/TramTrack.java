@@ -1,6 +1,7 @@
 package ub.edu.model;
 
 import java.time.LocalTime;
+import java.util.List;
 
 public class TramTrack extends Tram{
     private Integer id;

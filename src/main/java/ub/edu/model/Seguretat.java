@@ -1,5 +1,7 @@
 package ub.edu.model;
 
+import ub.edu.model.StatusType;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
