@@ -2,7 +2,6 @@ package ub.edu.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class PerfilPersona {
     HashMap<Integer, Opinio> opinionsPuntPas;

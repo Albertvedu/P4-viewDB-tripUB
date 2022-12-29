@@ -2,8 +2,6 @@ package ub.edu.model.punPas_Strategy;
 
 import ub.edu.controller.SessionMemory;
 import ub.edu.model.Vot;
-import ub.edu.resources.ResourcesFacade;
-import ub.edu.resources.RessourceFacadePuntdePas;
 import ub.edu.resources.RessourceFacadeRuta;
 import ub.edu.resources.dao.Quartet;
 

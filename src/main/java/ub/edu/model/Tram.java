@@ -1,7 +1,6 @@
 package ub.edu.model;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Tram {
     private Integer id;

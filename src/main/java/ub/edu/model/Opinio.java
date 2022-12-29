@@ -1,7 +1,5 @@
 package ub.edu.model;
 
-import java.time.LocalDate;
-
 // Opinio d'un Punt de Pas
 public class Opinio {
     private Integer id;

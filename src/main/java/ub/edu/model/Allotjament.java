@@ -10,6 +10,7 @@ public class Allotjament {
 
     public Allotjament() {
     }
+
     public Allotjament(String nom, Double preuPerNit) {
         this();
         this.nom = nom;
@@ -61,4 +62,5 @@ public class Allotjament {
     public void setEtapa(Etapa e) {
         this.etapa = e;
     }
+
 }

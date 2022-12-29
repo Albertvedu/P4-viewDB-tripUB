@@ -1,6 +1,9 @@
 package ub.edu.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 public class ModelFacade {
     private static ModelFacade uniqueInstance;

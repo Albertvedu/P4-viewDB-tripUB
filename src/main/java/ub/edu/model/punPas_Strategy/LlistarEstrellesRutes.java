@@ -1,11 +1,9 @@
 package ub.edu.model.punPas_Strategy;
 
 
-
 import ub.edu.controller.SessionMemory;
 import ub.edu.model.Ruta;
 import ub.edu.model.Vot;
-
 import ub.edu.resources.RessourceFacadeRuta;
 
 import java.util.*;

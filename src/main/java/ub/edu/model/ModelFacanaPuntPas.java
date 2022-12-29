@@ -26,7 +26,6 @@ public class ModelFacanaPuntPas {
 //        return puntPasEngine.incluirPuntdePas(rutaNom, tram, user, punt, dist);
 //    }
     public void getTop10Likes(String llistarPer, String criteri) throws Exception {
-       // puntPasStrategy.getTop_5Likes(criteri);
         puntPasStrategy.llistarLikes(llistarPer, criteri);
     }
     public void getTopEstrellesRuta( String llistarPer, String criteri) throws Exception {

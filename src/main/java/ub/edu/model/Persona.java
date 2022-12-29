@@ -1,7 +1,6 @@
 package ub.edu.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Persona {
     private String correu;

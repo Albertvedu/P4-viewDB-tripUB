@@ -5,7 +5,6 @@ import ub.edu.model.Opinio;
 import ub.edu.model.PuntDePas;
 import ub.edu.resources.RessourceFacadePuntdePas;
 
-
 import java.util.*;
 import java.util.stream.Collectors;
 

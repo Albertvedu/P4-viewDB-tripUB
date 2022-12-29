@@ -1,6 +1,7 @@
 package ub.edu.model.punPas_Strategy;
 
-import ub.edu.model.*;
+import ub.edu.model.Ruta;
+import ub.edu.model.SubjectModelPuntPas;
 import ub.edu.model.punPas_Strategy.extendClasses.PerDesLike;
 import ub.edu.model.punPas_Strategy.extendClasses.PerEstrelles;
 import ub.edu.model.punPas_Strategy.extendClasses.PerEstrellesRuta;
@@ -8,7 +9,8 @@ import ub.edu.model.punPas_Strategy.extendClasses.PerLikes;
 import ub.edu.view.ObserverView;
 import ub.edu.view.ObserverViewPuntPas;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class PuntPasStrategy implements SubjectModelPuntPas {
     private volatile static PuntPasStrategy uniqueInstance;
