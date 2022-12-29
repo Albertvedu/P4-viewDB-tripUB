@@ -1,0 +1,205 @@
+@startuml
+
+title __CONTROLLER's Class Diagram__\n
+
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.Controller {
+            {static} - uniqueInstance : Controller
+            + getAllAllotjaments()
+            + getAllComarques()
+            + getAllTramsEtapaTrackByRutaId()
+            {static} + getInstance()
+            + getSessionMemory()
+            + getTramEtapaById()
+            + getTramTrackById()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.ControllerCrearVista {
+            + ControllerCrearVista()
+            + ControllerCrearVista()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.GrupsController {
+            {static} - uniqueInstance : GrupsController
+            + addNewGrup()
+            + addRelacionGrupPersona()
+            + getAllGrupsPerNom()
+            + getAllGrupsPerPersona()
+            + getIdGrupByName()
+            {static} + getInstance()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.LocalitatController {
+            {static} - uniqueInstance : LocalitatController
+            + getAllLocalitats()
+            {static} + getInstance()
+            + getLocalitatByID()
+            + getLocalitat_y_EtapaByID()
+            + getLocalitat_y_PuntDePasById()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.LoginController {
+            {static} - uniqueInstance : LoginController
+            {static} + getInstance()
+            + loguejarSociStatus()
+            + recuperarContrasenya()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.PuntdePasController {
+            {static} - uniqueInstance : PuntdePasController
+            + ferDesLike()
+            + ferLike()
+            {static} + getInstance()
+            + getTop5Likes()
+            + getTopEstrellesPuntPas()
+            + getTopEstrellesRuta()
+            + valorarPuntdePas()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.RegisterController {
+            {static} - uniqueInstance : RegisterController
+            + addNewPersona()
+            {static} + getInstance()
+            + loguejarPersona()
+            + validatePassword()
+            + validateRegistrePersona()
+            + validateUsername()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.RutesController {
+            {static} - uniqueInstance : RutesController
+            + getAllRutesPerLocalitat()
+            + getAllRutesPerNom()
+            {static} + getInstance()
+            + getRutaById()
+            + valorarRuta()
+            + valorarRutaEstrelles()
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace controller {
+        class ub.edu.controller.SessionMemory {
+            ~ correuPersona : String
+            ~ idAllotjament : Integer
+            ~ idGrup : Integer
+            ~ idLocalitzacio : Integer
+            ~ idPuntDePas : Integer
+            ~ idRuta : Integer
+            ~ idTipus : int
+            ~ idTram : Integer
+            ~ listOpinions : List<Opinio>
+            ~ llistaVots : List<Vot>
+            ~ opcioVeure : String
+            ~ tipusValoracio : String
+            ~ valoracio : String
+            {static} - uniqueInstance : SessionMemory
+            + getCorreuPersona()
+            + getIdAllotjament()
+            + getIdGrup()
+            + getIdLocalitzacio()
+            + getIdPuntDePas()
+            + getIdRuta()
+            + getIdTipus()
+            + getIdTram()
+            {static} + getInstance()
+            + getListOpinions()
+            + getLlistaVots()
+            + getOpcioVeure()
+            + getTipusValoracio()
+            + getValoracio()
+            + setCorreuPersona()
+            + setIdAllotjament()
+            + setIdGrup()
+            + setIdLocalitzacio()
+            + setIdPuntDePas()
+            + setIdRuta()
+            + setIdTipus()
+            + setIdTram()
+            + setListOpinions()
+            + setLlistaVots()
+            + setOpcioVeure()
+            + setTipusValoracio()
+            + setValoracio()
+        }
+      }
+    }
+
+  
+
+  ub.edu.controller.Controller o-- ub.edu.resources.ResourcesFacade : inicialitzador
+  ub.edu.controller.Controller o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.Controller o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.controller.Controller o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.ControllerCrearVista o-- ub.edu.view.Vista : vista
+  ub.edu.controller.GrupsController o-- ub.edu.resources.ResourcesFacade : inicialitzador
+  ub.edu.controller.GrupsController o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.GrupsController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.LocalitatController o-- ub.edu.model.ModelFacanaLocalitat : modelFacanaLocalitat
+  ub.edu.controller.LocalitatController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.LoginController o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.LoginController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.PuntdePasController o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
+  ub.edu.controller.PuntdePasController o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.controller.PuntdePasController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.RegisterController o-- ub.edu.resources.ResourcesFacade : inicialitzador
+  ub.edu.controller.RegisterController o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.controller.RegisterController o-- ub.edu.model.TripUB : tripUB
+  ub.edu.controller.RutesController o-- ub.edu.model.ModelFacanaRuta : modelFacanaRuta
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

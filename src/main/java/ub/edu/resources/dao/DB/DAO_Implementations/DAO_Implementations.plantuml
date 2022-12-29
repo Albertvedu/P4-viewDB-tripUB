@@ -1,0 +1,830 @@
+@startuml
+
+title __DAO_IMPLEMENTATIONS's Class Diagram__\n
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOAPeuDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOAllotjamentDB()
+                + add()
+                + delete()
+                + getAll()
+                + getAllotjament()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOBicicletaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOBicicletaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOCampingDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOCampingDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOCasaRuralDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOCasaRuralDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOComarcaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOComarcaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getLocalitat()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOCotxeDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOCotxeDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOEtapaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOEtapaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOGrupDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOGrupDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getGrup()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOGrup_FormatPer_PersonesDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOGrup_FormatPer_PersonesDB()
+                + add()
+                + delete()
+                + getAll()
+                + getByCorreu_Persona()
+                + getById()
+                + getById_Grup()
+                + getByIds_AND_OR()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOHotelDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOHotelDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOLocalitatDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOLocalitatDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getLocalitat()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOOpinioDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOOpinioDB()
+                + actualizarOpinioConDataTipusOpinio()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getOpinio()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOPersonaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOPersonaDB()
+                + add()
+                + delete()
+                + findPersonaByCorreu()
+                + findPersonaByUserNameAndPassword()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOPersones_Realitza_RutaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOPersones_Realitza_RutaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getByCorreu_Persona()
+                + getById()
+                + getById_Ruta()
+                + getByIds_AND_OR()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOPuntDePasDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOPuntDePasDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAORefugiDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAORefugiDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAORelacio_Comarca_RutaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAORelacio_Comarca_RutaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getById_Comarca()
+                + getById_Ruta()
+                + getByIds_AND_OR()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOReservaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOReservaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getRuta()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAORutaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAORutaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getRuta()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusOpinioDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTipusOpinioDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusVotDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTipusVotDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTramDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTramDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getTram()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTramEtapaDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTramEtapaDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTramTrackDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - columns_parametrosTabla : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTramTrackDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+                - rellenarMadreEnLaHija()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTransportDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getTransport()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTransport_PossiblePerAl_TramDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTransport_PossiblePerAl_TramDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getById_Tram()
+                + getById_Transport()
+                + getByIds_AND_OR()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOTripUBDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOTripUBDB()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getTripUB()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace dao {
+          namespace DB.DAO_Implementations {
+            class ub.edu.resources.dao.DB.DAO_Implementations.DAOVotDB {
+                - array_AvailableTablesNames : ArrayList<Object>
+                - connection : Connection
+                - nameTable : String
+                + DAOVotDB()
+                + actualizarVotConDataTipusVot()
+                + add()
+                + delete()
+                + getAll()
+                + getById()
+                + getVot()
+                + update()
+                - convertir_array_de_Hasmaps_a_List()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOAPeu
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB : daoTransportDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOAPeuDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOAllotjament
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOBicicletaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOBicicleta
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOBicicletaDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB : daoTransportDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOBicicletaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCampingDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOCamping
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCampingDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB : daoAllotjamentDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCampingDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCasaRuralDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOCasaRural
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCasaRuralDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB : daoAllotjamentDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCasaRuralDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOComarcaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOComarca
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOComarcaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCotxeDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOCotxe
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCotxeDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB : daoTransportDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOCotxeDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOEtapaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOEtapa
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOEtapaDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOLocalitatDB : daoLocalitatDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOEtapaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOGrupDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOGrup
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOGrupDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOGrup_FormatPer_PersonesDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOGrupFormatPerPersones
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOGrup_FormatPer_PersonesDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOHotelDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOHotel
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOHotelDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB : daoAllotjamentDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOHotelDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOLocalitatDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOLocalitat
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOLocalitatDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOOpinioDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOOpinio
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOOpinioDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusOpinioDB : daoTipusOpinioDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOOpinioDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPersonaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOPersona
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPersonaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPersones_Realitza_RutaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOPersonesRealitzaRuta
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPersones_Realitza_RutaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPuntDePasDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOPuntDePas
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPuntDePasDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOLocalitatDB : daoLocalitatDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOPuntDePasDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORefugiDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAORefugi
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORefugiDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOAllotjamentDB : daoAllotjamentDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORefugiDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORelacio_Comarca_RutaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAORelacioComarcaRuta_2
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORelacio_Comarca_RutaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOReservaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOReserva
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOReservaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORutaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAORuta
+  ub.edu.resources.dao.DB.DAO_Implementations.DAORutaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusOpinioDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTipusOpinio
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusOpinioDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusVotDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTipusVot
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusVotDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTram
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramEtapaDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTramEtapa
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramEtapaDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTramDB : daoTramDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramEtapaDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramTrackDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTramTrack
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramTrackDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTramDB : daoTramDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTramTrackDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTransport
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTransportDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTransport_PossiblePerAl_TramDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTransportPossiblePerAlTram
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTransport_PossiblePerAl_TramDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTripUBDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOTripUB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOTripUBDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOVotDB .up.|> ub.edu.resources.dao.DAO_Interfaces.DAOVot
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOVotDB o-- ub.edu.resources.dao.DB.DAO_Implementations.DAOTipusVotDB : daoTipusVotDB
+  ub.edu.resources.dao.DB.DAO_Implementations.DAOVotDB o-- ub.edu.resources.dao.DB.Data.CRUD_Tables : crud_tables
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

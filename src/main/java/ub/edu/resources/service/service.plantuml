@@ -1,0 +1,315 @@
+@startuml
+
+title __SERVICE's Class Diagram__\n
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace service {
+          interface ub.edu.resources.service.AbstractFactoryData {
+              {abstract} + createDAOAPeu()
+              {abstract} + createDAOAllotjament()
+              {abstract} + createDAOBicicleta()
+              {abstract} + createDAOCamping()
+              {abstract} + createDAOCasaRural()
+              {abstract} + createDAOComarca()
+              {abstract} + createDAOCotxe()
+              {abstract} + createDAOEtapa()
+              {abstract} + createDAOGrup()
+              {abstract} + createDAOGrupFormatPerPersones()
+              {abstract} + createDAOHotel()
+              {abstract} + createDAOLocalitat()
+              {abstract} + createDAOOpinio()
+              {abstract} + createDAOPersona()
+              {abstract} + createDAOPersonaRealitzaRuta()
+              {abstract} + createDAOPuntDePas()
+              {abstract} + createDAORefugi()
+              {abstract} + createDAORelacioRutaComarca()
+              {abstract} + createDAORelacioRutaComarca_2()
+              {abstract} + createDAOReserva()
+              {abstract} + createDAORuta()
+              {abstract} + createDAOTipusOpinio()
+              {abstract} + createDAOTipusVot()
+              {abstract} + createDAOTram()
+              {abstract} + createDAOTramEtapa()
+              {abstract} + createDAOTramTrack()
+              {abstract} + createDAOTransport()
+              {abstract} + createDAOTransportPosibleTram()
+              {abstract} + createDAOTripUB()
+              {abstract} + createDAOVot()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace service {
+          class ub.edu.resources.service.DataService {
+              + DataService()
+              + addAPeu()
+              + addAllotjament()
+              + addBicicleta()
+              + addCamping()
+              + addCasaRural()
+              + addComarca()
+              + addCotxe()
+              + addEtapa()
+              + addGrup()
+              + addGrupFormatPersones()
+              + addHotel()
+              + addLocalitat()
+              + addOpinio()
+              + addPersona()
+              + addPersonaRealitzaRuta()
+              + addPuntDePas()
+              + addRefugi()
+              + addRelacioComarcaRuta()
+              + addReserva()
+              + addRuta()
+              + addTipusOpinio()
+              + addTipusVot()
+              + addTram()
+              + addTramEtapa()
+              + addTramTrack()
+              + addTransport()
+              + addTransportPosibleTram()
+              + addTripUB()
+              + addVot()
+              + deleteAPeu()
+              + deleteAllotjament()
+              + deleteBicicleta()
+              + deleteCamping()
+              + deleteCasaRural()
+              + deleteComarca()
+              + deleteCotxe()
+              + deleteEtapa()
+              + deleteGrup()
+              + deleteGrupFormatPersones()
+              + deleteHotel()
+              + deleteLocalitat()
+              + deleteOpinio()
+              + deletePersona()
+              + deletePersonaRealitzaRuta()
+              + deletePuntDePas()
+              + deleteRefugi()
+              + deleteRelacioComarcaRuta()
+              + deleteReserva()
+              + deleteRuta()
+              + deleteTipusOpinio()
+              + deleteTipusVot()
+              + deleteTram()
+              + deleteTramEtapa()
+              + deleteTramTrack()
+              + deleteTransport()
+              + deleteTransportPosibleTram()
+              + deleteTripUB()
+              + deleteVot()
+              + getAPeuById()
+              + getAllAPeus()
+              + getAllAllotjaments()
+              + getAllBicicletas()
+              + getAllCampings()
+              + getAllCasaRurals()
+              + getAllComarcas()
+              + getAllCotxes()
+              + getAllEtapas()
+              + getAllGrupFormatPersones()
+              + getAllGrups()
+              + getAllHotels()
+              + getAllLocalitats()
+              + getAllOpinions()
+              + getAllPersonas()
+              + getAllPersonasRealitzaRutas()
+              + getAllPuntDePas()
+              + getAllRefugis()
+              + getAllRelacioComarcasRutas()
+              + getAllReservas()
+              + getAllRutas()
+              + getAllTipusOpinions()
+              + getAllTipusVots()
+              + getAllTramEtapas()
+              + getAllTramTracks()
+              + getAllTrams()
+              + getAllTransports()
+              + getAllTransportsPosibleTrams()
+              + getAllTripUBs()
+              + getAllVots()
+              + getAllotjamentById()
+              + getBicicletaById()
+              + getCampingById()
+              + getCasaRuralById()
+              + getComarcaById()
+              + getCotxeById()
+              + getEtapaById()
+              + getGrupById()
+              + getGrupsPerPersonaByCorreuPersona()
+              + getGrupsPerPersonaByIdGrup()
+              + getGrupsPerPersonaByIdsAND_OR()
+              + getHotelById()
+              + getLocalitatById()
+              + getOpinioById()
+              + getPersonaByCorreu()
+              + getPersonaByUserNameAndPassword()
+              + getPersonaRealitzaByCorreu_Persona()
+              + getPersonaRealitzaById_Ruta()
+              + getPersonaRealitzaByIds_AND_OR()
+              + getPuntDePasById()
+              + getRefugiById()
+              + getRelacioComarcaRutaById_Comarca()
+              + getRelacioComarcaRutaById_Ruta()
+              + getRelacioComarcaRutaByIds_AND_OR()
+              + getReservaById()
+              + getRutaById()
+              + getTipusOpinioById()
+              + getTipusVotById()
+              + getTramById()
+              + getTramEtapaById()
+              + getTramTrackById()
+              + getTransportById()
+              + getTransportPosibleTramById_Tram()
+              + getTransportPosibleTramById_Transport()
+              + getTransportPosibleTramByIds_AND_OR()
+              + getTripUBById()
+              + getVotById()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace service {
+          class ub.edu.resources.service.FactoryDB {
+              ~ connection : Connection
+              + FactoryDB()
+              + createDAOAPeu()
+              + createDAOAllotjament()
+              + createDAOBicicleta()
+              + createDAOCamping()
+              + createDAOCasaRural()
+              + createDAOComarca()
+              + createDAOCotxe()
+              + createDAOEtapa()
+              + createDAOGrup()
+              + createDAOGrupFormatPerPersones()
+              + createDAOHotel()
+              + createDAOLocalitat()
+              + createDAOOpinio()
+              + createDAOPersona()
+              + createDAOPersonaRealitzaRuta()
+              + createDAOPuntDePas()
+              + createDAORefugi()
+              + createDAORelacioRutaComarca()
+              + createDAORelacioRutaComarca_2()
+              + createDAOReserva()
+              + createDAORuta()
+              + createDAOTipusOpinio()
+              + createDAOTipusVot()
+              + createDAOTram()
+              + createDAOTramEtapa()
+              + createDAOTramTrack()
+              + createDAOTransport()
+              + createDAOTransportPosibleTram()
+              + createDAOTripUB()
+              + createDAOVot()
+              + getC()
+              ~ connection_close()
+              ~ connection_open()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace b.edu {
+      namespace resources {
+        namespace service {
+          class ub.edu.resources.service.FactoryMOCK {
+              + createDAOAPeu()
+              + createDAOAllotjament()
+              + createDAOBicicleta()
+              + createDAOCamping()
+              + createDAOCasaRural()
+              + createDAOComarca()
+              + createDAOCotxe()
+              + createDAOEtapa()
+              + createDAOGrup()
+              + createDAOGrupFormatPerPersones()
+              + createDAOHotel()
+              + createDAOLocalitat()
+              + createDAOOpinio()
+              + createDAOPersona()
+              + createDAOPersonaRealitzaRuta()
+              + createDAOPuntDePas()
+              + createDAORefugi()
+              + createDAORelacioRutaComarca()
+              + createDAORelacioRutaComarca_2()
+              + createDAOReserva()
+              + createDAORuta()
+              + createDAOTipusOpinio()
+              + createDAOTipusVot()
+              + createDAOTram()
+              + createDAOTramEtapa()
+              + createDAOTramTrack()
+              + createDAOTransport()
+              + createDAOTransportPosibleTram()
+              + createDAOTripUB()
+              + createDAOVot()
+          }
+        }
+      }
+    }
+  }
+  
+
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOAllotjament : daoAllotjament
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOBicicleta : daoBicicleta
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOCamping : daoCamping
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOCasaRural : daoCasaRural
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOComarca : daoComarca
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOCotxe : daoCotxe
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOEtapa : daoEtapa
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOGrup : daoGrup
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOGrupFormatPerPersones : daoGrupFormatPerPersones
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOHotel : daoHotel
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOLocalitat : daoLocalitat
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOOpinio : daoOpinio
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOPersona : daoPersona
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOPersonesRealitzaRuta : daoPersonesRealitzaRuta
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOPuntDePas : daoPuntDePas
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAORefugi : daoRefugi
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAORelacioComarcaRuta : daoRelacioRutaComarca
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAORelacioComarcaRuta_2 : daoRelacioRutaComarca2
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOReserva : daoReserva
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAORuta : daoRuta
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTipusOpinio : daoTipusOpinio
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTipusVot : daoTipusVot
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTram : daoTram
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTramEtapa : daoTramEtapa
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTramTrack : daoTramTrack
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTransport : daoTransport
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTransportPossiblePerAlTram : daoTransportPosibleTram
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOTripUB : daoTripUB
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOVot : daoVot
+  ub.edu.resources.service.DataService o-- ub.edu.resources.dao.DAO_Interfaces.DAOAPeu : daoaPeu
+  ub.edu.resources.service.FactoryDB .up.|> ub.edu.resources.service.AbstractFactoryData
+  ub.edu.resources.service.FactoryMOCK .up.|> ub.edu.resources.service.AbstractFactoryData
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
