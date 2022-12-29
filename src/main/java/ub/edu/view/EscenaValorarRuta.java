@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import ub.edu.controller.RutesController;
 
 public class EscenaValorarRuta extends Escena {
 
@@ -27,8 +28,11 @@ public class EscenaValorarRuta extends Escena {
 
     private String correu_persona;
     private Integer id_ruta;
+    private RutesController rutesController;
 
-
+    public EscenaValorarRuta() throws Exception {
+        this.rutesController = RutesController.getInstance();
+    }
 
     public void start(){
         System.out.println("Entro a Valorar Ruta");
@@ -145,7 +149,7 @@ public class EscenaValorarRuta extends Escena {
         });
     }
 
-    public void onButtonValorarClick(){
+    public void onButtonValorarClick() throws Exception {
         //enviar la valoracion
         System.out.println("Entro a enviar una valoració");
         //TODO:
@@ -157,19 +161,53 @@ public class EscenaValorarRuta extends Escena {
         // 3- Refrescar la vista si es necesario
 
         // Aqui tienes un código de ejemplo para ver cómo recoger el valor de un radio button
-        String typeValorar="";
-        String valor="";
-        if (radioButton_G1_Text1.isSelected()) {
-            typeValorar = "Like";
-            if (radioButton_Group1_Like.isSelected()) valor = radioButton_Group1_Like.getText();
-            else valor = radioButton_Group1_Dislike.getText();
-        }else{
-            //TODO: recoger los otros tipos de valoracion
-            /** Your Code Here **/
 
-            System.out.println("TODO: recollir altres tipus de valoració");
+        if (radioButton_G1_Text1.isSelected()) {
+            controller.getSessionMemory().setTipusValoracio("Like");
+            if (radioButton_Group1_Like.isSelected()) {
+                controller.getSessionMemory().setValoracio("Like");
+                controller.getSessionMemory().setIdTipus(6);
+            }
+            else {
+                controller.getSessionMemory().setValoracio("Unlike");
+                controller.getSessionMemory().setIdTipus(10);
+            }
+            rutesController.valorarRuta();
+        }else{
+            //recoger valoración Opinión
+            if (radioButton_G2_Text2.isSelected()){
+                controller.getSessionMemory().setTipusValoracio("Opinio");
+                if (radioButton_Group2_Text1.isSelected()) controller.getSessionMemory().setValoracio("No la faria mai");
+                else if (radioButton_Group2_Text2.isSelected()) controller.getSessionMemory().setValoracio("La faré si no hi ha més remei");
+                else if (radioButton_Group2_Text3.isSelected()) controller.getSessionMemory().setValoracio("Potser la faria");
+                else if (radioButton_Group2_Text4.isSelected()) controller.getSessionMemory().setValoracio("M'encantaria fer-la");
+            }else{
+                if (radioButton_G3_Text3.isSelected()){
+                    controller.getSessionMemory().setTipusValoracio("Estrelles");
+                    if (radioButton_Group3_Text1.isSelected()){
+                        controller.getSessionMemory().setValoracio("1");
+                        controller.getSessionMemory().setIdTipus(1);
+                    }
+                    else if (radioButton_Group3_Text2.isSelected()){
+                        controller.getSessionMemory().setValoracio("2");
+                        controller.getSessionMemory().setIdTipus(2);
+                    }
+                    else if (radioButton_Group3_Text3.isSelected()){
+                        controller.getSessionMemory().setValoracio("3");
+                        controller.getSessionMemory().setIdTipus(3);
+                    }
+                    else if (radioButton_Group3_Text4.isSelected()){
+                        controller.getSessionMemory().setValoracio("4");
+                        controller.getSessionMemory().setIdTipus(4);
+                    }
+                    else if (radioButton_Group3_Text5.isSelected()){
+                        controller.getSessionMemory().setValoracio("5");
+                        controller.getSessionMemory().setIdTipus(5);
+                    }
+                }
+                rutesController.valorarRutaEstrelles();
+            }
         }
-        System.out.println("Valoració de tipus: "+ typeValorar+ " és: "+ valor);
 
         //TODO: hacer efectiva la valoracion -> controller....
         /** Your Code Here **/

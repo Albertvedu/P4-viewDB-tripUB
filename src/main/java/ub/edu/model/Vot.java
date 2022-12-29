@@ -32,6 +32,25 @@ public class Vot {
         this.tipusVot = tipusVot;
         this.valorVot = valorVot;
     }
+    public Vot(LocalDate data, Integer id_ruta, String correu_persona, String tipusVot, String valorVot, Integer idGrup, Integer idTipusVot) {
+        this.data = data;
+        this.idRuta = id_ruta;
+        this.correuPersona = correu_persona;
+        this.tipusVot = tipusVot;
+        this.valorVot = valorVot;
+        this.idGrup = idGrup;
+        this.idTipusVot = idTipusVot;
+    }
+    public Vot(Integer id, LocalDate data, Integer id_ruta, String correu_persona, String tipusVot, String valorVot, Integer idGrup, Integer idTipusVot) {
+        this.id = id;
+        this.data = data;
+        this.idRuta = id_ruta;
+        this.correuPersona = correu_persona;
+        this.tipusVot = tipusVot;
+        this.valorVot = valorVot;
+        this.idGrup = idGrup;
+        this.idTipusVot = idTipusVot;
+    }
 
     public Integer getId() {
         return id;

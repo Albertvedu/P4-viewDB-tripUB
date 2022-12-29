@@ -82,16 +82,17 @@ public class EscenaTramDetalls extends Escena{
     private void mostrarFinestraTramEtapaDetalls(Integer id_tram) throws Exception {
         Escena register = EscenaFactory.INSTANCE.creaEscena("tramEtapaDetalls-view", "Etapes asociades al TramEtapa: "+String.valueOf(id_tram));
         EscenaTramEtapaDetalls escenaTramEtapaDetalls = ((EscenaTramEtapaDetalls) register);
-        register.setController(controller);
+        register.setController();
         //en este caso, el Tram corresponde al TramEtapa
         this.controller.getSessionMemory().setIdTram(id_tram);
         escenaTramEtapaDetalls.start();
+        stage.close();//
     }
 
     private void mostrarFinestraTramTrackPdPDetalls(Integer id_tram) throws Exception {
         Escena register = EscenaFactory.INSTANCE.creaEscena("tramTrackPdPDetalls-view", "Valorar Punt De Pas Del TramTrack: "+String.valueOf(id_tram));
         EscenaTramTrackPdPDetalls escenaTramTrackDetalls = ((EscenaTramTrackPdPDetalls) register);
-        register.setController(controller);
+        register.setController();
         //en este caso, el Tram corresponde al Tramtrack
         this.controller.getSessionMemory().setIdTram(id_tram);
         escenaTramTrackDetalls.start();

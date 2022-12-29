@@ -3,12 +3,22 @@ package ub.edu.model;
 import java.util.*;
 
 public class ModelFacade {
+    private static ModelFacade uniqueInstance;
     private TripUB tripUB;
+    private ModelFacanaPuntPas modelFacanaPuntPas;
 
-    public ModelFacade(TripUB tripUB) {
-        this.tripUB = tripUB;
+    public static ModelFacade getInstance() throws Exception {
+        if (uniqueInstance == null) {
+            synchronized (ModelFacade.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new ModelFacade();
+                    uniqueInstance.tripUB = TripUB.getInstance();
+                    uniqueInstance.modelFacanaPuntPas = ModelFacanaPuntPas.getInstance();
+                }
+            }
+        }
+        return uniqueInstance;
     }
-
     public StatusType validateRegistrePersona(String username, String password) {
         if (Seguretat.isMail((username)) && Seguretat.isPasswordSegur(password)) {
             Persona persona = findPersonaByCorreu(username);
@@ -38,7 +48,7 @@ public class ModelFacade {
         return persona.getPwd();
     }
 
-    public StatusType loguejarSociStatus(String correu, String password) {
+    public StatusType  loguejarSociStatus(String correu, String password) {
         Persona persona = findPersonaByCorreu(correu);
         if (persona == null) {
             return StatusType.CORREU_INEXISTENT;
@@ -62,42 +72,7 @@ public class ModelFacade {
         return comarquesDisponibles;
     }
 
-    public List<HashMap<Object, Object>> getAllLocalitats() throws Exception {
-        List<Localitat> locs = getAllLocalitatsUB();
-        List<HashMap<Object, Object>> localitats = new ArrayList<>();
-        for (Localitat l : locs) {
-            HashMap<Object, Object> hashMap = new HashMap<>();
-            hashMap.put("id", l.getId());
-            hashMap.put("nom", l.getNom());
-            hashMap.put("altitud", l.getAltitud());
-            hashMap.put("latitud", l.getLatitud());
-            hashMap.put("longitud", l.getLongitud());
-            hashMap.put("id_comarca", l.getIdComarca());
-            localitats.add(hashMap);
-        }
-        return localitats;
-    }
 
-    public List<Localitat> getAllLocalitatsUB() {
-        List<Localitat> llistaTotal = new ArrayList<>();
-        for (Comarca c: tripUB.getAllComarques()) {
-            List<Localitat>  l;
-            l = c.getAllLocalitats();
-            for (Localitat local: l) {
-                llistaTotal.add(local);
-            }
-        }
-        //la lista resultante no esta ordenada, mejor ordenarla ahora,
-        //porque despeus en la vista si coges por id y esta desordenada, petará
-        Collections.sort(llistaTotal, new Comparator<Localitat>() {
-            @Override
-            public int compare(Localitat l1, Localitat l2) {
-                // Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
-                return l1.getId().compareTo(l2.getId());
-            }
-        });
-        return llistaTotal;
-    }
     public List<HashMap<Object, Object>> getAllTramsEtapaTrackByRutaId(Integer id_ruta) throws Exception {
         //Obtener todos los trams -> si se cogen directamente los TramEtapa y TtramTrack, dentro ya estarán los Trams respectivamente
 
@@ -149,32 +124,6 @@ public class ModelFacade {
         hashMap.put("id_pdp_desti", tramTrack.getIdPuntDePasDesti());
         return hashMap;
     }
-
-    public HashMap<Object, Object> getLocalitat_y_PuntDePasById(Integer id) throws Exception {
-        PuntDePas puntDePas = getPuntDePasByIdUB(id);
-        Localitat localitat = getLocalitatByIdUB(puntDePas.getId());
-        //al ser herencia recordar que id_localitat == id_puntDePas
-        HashMap<Object, Object> hashMap = new HashMap<>();
-        hashMap.put("id", puntDePas.getId());
-        hashMap.put("nom", localitat.getNom());
-        hashMap.put("highlight", puntDePas.getHighlight());
-        return hashMap;
-    }
-
-    public List<HashMap<Object,Object>> getAllRutesPerNom() {
-        List<HashMap<Object, Object>> rutesDisponibles = new ArrayList<>();
-        for (Ruta r : tripUB.getRutes()) {
-            HashMap<Object, Object> atributRuta = new HashMap<>();
-            Integer id = r.getId();
-            String nom = r.getNom();
-            atributRuta.put("id", id);
-            atributRuta.put("nom", nom);
-
-            rutesDisponibles.add(atributRuta);
-        }
-        return rutesDisponibles;
-    }
-
     public List<HashMap<Object,Object>> getAllGrupsPerNom() {
         List<HashMap<Object,Object>> grupsDisponibles = new ArrayList<>();
         //debido a que en el initGrups se inicializó y se guardo los grupos en this.grups
@@ -213,17 +162,6 @@ public class ModelFacade {
         return hashMap;
     }
 
-    public HashMap<Object, Object> getLocalitat_y_EtapaByID(Integer id) throws Exception {
-        Etapa etapa = getEtapaByIdUB(id);
-        Localitat localitat = getLocalitatByIdUB(etapa.getId());
-        // Por seguridad y comprension lo hacemos en 2 pasos, pero realmente, nuestra DB permite hacer Localitat localitat = dataService.getLocalitatById(id).get();
-        //al ser herencia recordar que id_localitat == id_etapa
-        HashMap<Object, Object> hashMap = new HashMap<>();
-        hashMap.put("id", etapa.getId());
-        hashMap.put("nom", localitat.getNom());
-        return hashMap;
-    }
-
     public List<HashMap<Object, Object>> getAllAllotjaments() throws Exception {
         List<Allotjament> allotjamentList = getAllAllotjamentsUB();
         List<HashMap<Object, Object>> listaFinal = new ArrayList<>();
@@ -236,38 +174,6 @@ public class ModelFacade {
         return listaFinal;
     }
 
-
-    public HashMap<Object, Object> getRutaById(Integer id_ruta) throws Exception {
-        Ruta r = tripUB.findRuta(id_ruta);
-        HashMap<Object, Object> hashMap = new HashMap<>();
-        if (r != null) {
-            hashMap.put("id", r.getId());
-            hashMap.put("nom", r.getNom());
-            hashMap.put("dataCreacio", r.getDataCreacio());
-            hashMap.put("durada", r.getDurada());
-            hashMap.put("descripcio", r.getDescripcio());
-            hashMap.put("cost", r.getCost());
-            hashMap.put("dificultat", r.getDificultat());
-            hashMap.put("tipusRuta", r.getTipusRuta());
-            hashMap.put("id_lloc_origen", r.getIdLlocOrigen());
-            hashMap.put("id_lloc_desti", r.getIdLlocDesti());
-        }
-        return hashMap;
-    }
-
-    public HashMap<Object, Object> getLocalitatByID(Integer id) throws Exception {
-        Localitat loc = getLocalitatByIdUB(id);
-        HashMap hashMap = new HashMap();
-        if (loc != null) {
-            hashMap.put("id", loc.getId());
-            hashMap.put("nom", loc.getNom());
-            hashMap.put("altitud", loc.getAltitud());
-            hashMap.put("latitud", loc.getLatitud());
-            hashMap.put("longitud", loc.getLongitud());
-            hashMap.put("id_comarca", loc.getIdComarca());
-        }
-        return hashMap;
-    }
 
     public List<TramEtapa> getAllTramEtapasUB() {
         List<TramEtapa> listTrams = new ArrayList<>();
@@ -299,23 +205,6 @@ public class ModelFacade {
         return tt;
     }
 
-    public PuntDePas getPuntDePasByIdUB(Integer id) {
-        PuntDePas tt = null;
-        for (Ruta r: tripUB.getRutes()) {
-            tt = r.getPuntDePasById(id);
-            if (tt!=null) return tt;
-        }
-        return tt;
-    }
-
-    public Localitat getLocalitatByIdUB(Integer id) {
-        Localitat tt = null;
-        for (Comarca c: tripUB.getAllComarques()) {
-            tt = c.getLocalitat(id);
-            if (tt!=null) return tt;
-        }
-        return tt;
-    }
 
     public TramEtapa getTramEtapaByIdUB(Integer id) {
         TramEtapa tt = null;
@@ -369,16 +258,7 @@ public class ModelFacade {
         XarxaPersones xp = tripUB.getXarxaPersones();
         return(xp.find(correu));
     }
-    public PuntDePas findPuntDePas(Integer idPuntDePas) {
-        PuntDePas pdp = null;
-        for (Ruta r: tripUB.getRutes()) {
-            pdp = r.findPuntDePas(idPuntDePas);
-            if (pdp != null) {
-                return pdp;
-            }
-        }
-        return pdp;
-    }
+
 
     public boolean setXarxaPersones(List<Persona> l) {
         XarxaPersones xarxa;

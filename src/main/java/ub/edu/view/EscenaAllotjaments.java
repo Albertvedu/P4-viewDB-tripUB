@@ -8,8 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -103,9 +101,10 @@ public class EscenaAllotjaments extends Escena{
     public void mostrarFinestraValorarAllotjament(Integer id_allotjament) throws Exception {
         Escena register = EscenaFactory.INSTANCE.creaEscena("reservarAllotjament-view", "Reservar Allotjament: "+String.valueOf(id_allotjament)+" per a la localitzacio: "+this.id_localitzacio);
         EscenaReservarAllotjament escenaReservarAllotjament = ((EscenaReservarAllotjament) register);
-        register.setController(controller);
+        register.setController();
         this.controller.getSessionMemory().setIdAllotjament(id_allotjament);
         escenaReservarAllotjament.start();
+        stage.close();//
     }
 }
 

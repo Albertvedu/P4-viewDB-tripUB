@@ -18,7 +18,6 @@ public class Opinio {
 
     public Opinio() {
     }
-
     public Opinio(Integer id_puntDePas, String tipusOpinio, String valorOpinio, String correu_persona) {
         this();
         this.id_puntDePas = id_puntDePas;

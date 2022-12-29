@@ -1,5 +1,6 @@
 package ub.edu.resources;
 
+import ub.edu.controller.SessionMemory;
 import ub.edu.model.StatusType;
 import ub.edu.model.Seguretat;
 import ub.edu.model.*;
@@ -7,26 +8,37 @@ import ub.edu.resources.dao.Parell;
 import ub.edu.resources.service.AbstractFactoryData;
 import ub.edu.resources.service.DataService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import ub.edu.resources.service.FactoryDB;
 
 public class ResourcesFacade {
 
+    private volatile static ResourcesFacade uniqueInstance;
     private AbstractFactoryData factory;      // Origen de les dades
     private DataService dataService;         // Connexio amb les dades
     private TripUB tripUB;                  // Model a tractar
-
     private ModelFacade modelFacade;
+    private ModelFacanaPuntPas modelFacanaPuntPas;
+    private SessionMemory sessionMemory;
 
-    public ResourcesFacade(TripUB tripUB, ModelFacade modelFacade) {
-        // factory = new FactoryMOCK();
 
-        factory = new FactoryDB();
-        dataService = new DataService(factory);
-        this.tripUB = tripUB;
-        this.modelFacade = modelFacade;
-
+    public static ResourcesFacade getInstance() throws Exception {
+        if (uniqueInstance == null) {
+            synchronized (ResourcesFacade.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new ResourcesFacade();
+                    uniqueInstance.tripUB = TripUB.getInstance();
+                    uniqueInstance.modelFacade = ModelFacade.getInstance();
+                    uniqueInstance.factory = new FactoryDB();
+                    uniqueInstance.dataService = new DataService(uniqueInstance.factory);
+                    uniqueInstance.modelFacanaPuntPas = ModelFacanaPuntPas.getInstance();
+                    uniqueInstance.sessionMemory = SessionMemory.getInstance();
+                }
+            }
+        }
+        return uniqueInstance;
     }
 
     public void populateTripUB() {
@@ -44,7 +56,8 @@ public class ResourcesFacade {
             initAllotjaments(); //success // Pressuposa que les etapes ja han estat creades
 
             initPerfilsPersones(); //success
-
+            getRelacioRutesComarques();   // iniciar atribut Relacio rutes comarques
+            initListOpinions();   // iniciar Opinions... Chapuza, per que no toquem BBDD, com diu l'exercici
         } catch (Exception e) {
             System.out.println("Exception: --> " + e.getMessage());
         }
@@ -67,7 +80,24 @@ public class ResourcesFacade {
         }
 
     }
+    public void initListOpinions() throws Exception {
+        Opinio op1 = new Opinio(11,"Estrelles", "4", "dtomacal@yahoo.cat");
+        Opinio op2 = new Opinio(11,"Estrelles", "3", "dtomacal@yahoo.cat");
+        Opinio op3 = new Opinio(12,"Estrelles", "2", "dtomacal@yahoo.cat");
+        Opinio op4 = new Opinio(11,"Estrelles", "1", "dtomacal@yahoo.cat");
+        Opinio op5 = new Opinio(10,"Estrelles", "2", "dtomacal@yahoo.cat");
+        Opinio op6 = new Opinio(14,"Estrelles", "3", "dtomacal@yahoo.cat");
 
+
+        List<Opinio> ll = dataService.getAllOpinions();
+        ll.add(op1);
+        ll.add(op2);
+        ll.add(op3);
+        ll.add(op4);
+        ll.add(op5);
+        ll.add(op6);
+        sessionMemory.setListOpinions(ll); // Chapuza per no fer servir BBDD, com diu l'exercici
+    }
     private void initPerfilsPersones() throws Exception {
         // Es considera que totes les classes amb les que estan relacionades
         // vots, opinio i reserves ja han estat creades
@@ -78,8 +108,9 @@ public class ResourcesFacade {
 
     private void initOpinio() throws Exception  {
         List<Opinio> llista = dataService.getAllOpinions();
+        sessionMemory.setListOpinions(llista);  // Iniciar llista Opinions.. per no usar BBDD
         for (Opinio o: llista) {
-            o.setPuntDePas(modelFacade.findPuntDePas(o.getIdPuntDePas()));
+            o.setPuntDePas(modelFacanaPuntPas.findPuntDePas(o.getIdPuntDePas()));
             Persona persona = modelFacade.findPersonaByCorreu(o.getCorreuPersona());
             o.setPersona(persona);
 
@@ -89,7 +120,24 @@ public class ResourcesFacade {
     }
 
     private void initVots() throws Exception  {
-        List<Vot> llista = dataService.getAllVots();
+        List<Vot> llista = getAllVots();
+
+
+        // Afegir dades a la llista
+        Vot vot1 = new Vot(llista.size() + 7, LocalDate.now(), 1, "CapitaCC@gmail.com", "Like", "Likes", 3, 6);
+        Vot vot2 = new Vot(llista.size() + 8, LocalDate.now(), 1, "CapitaCC@gmail.com", "Like", "Unlike", 3, 10);
+        Vot vot3 = new Vot(llista.size() + 9, LocalDate.now(), 1, "CapitaCC@gmail.com", "Estrelles", "2", 3, 6);
+        Vot vot4 = new Vot(llista.size() + 10, LocalDate.now(), 1, "CapitaCC@gmail.com", "Like", "Likes", 3, 6);
+        Vot vot5 = new Vot(llista.size() + 11, LocalDate.now(), 1, "CapitaCC@gmail.com", "Like", "Likes", 3, 6);
+        Vot vot6 = new Vot(llista.size() + 12, LocalDate.now(), 1, "CapitaCC@gmail.com", "Like", "Likes", 3, 6);
+
+        llista.add(vot1);
+        llista.add(vot2);
+        llista.add(vot3);
+        llista.add(vot4);
+        llista.add(vot5);
+        llista.add(vot6);
+        sessionMemory.setLlistaVots(llista);   // INICIA llista vots a sessionMemory, per no Usar BBDD
         for (Vot v: llista) {
             v.setRuta(tripUB.findRuta((v.getIdRuta())));
             Persona persona = modelFacade.findPersonaByCorreu(v.getCorreuPersona());
@@ -112,7 +160,7 @@ public class ResourcesFacade {
             pp.addReserva(r);
         }
     }
-    private void initLocalitats() throws Exception  {
+    private boolean initLocalitats() throws Exception  {
         List<Localitat> llista = dataService.getAllLocalitats();
         for (Localitat l : llista) {
             Comarca c = tripUB.findComarca(l.getIdComarca());
@@ -127,6 +175,7 @@ public class ResourcesFacade {
                 r.setLocalitatDesti(l);
             }
         }
+        return tripUB.setLocalitats(llista);
     }
 
     private void initAllotjaments() throws Exception {
@@ -186,21 +235,21 @@ public class ResourcesFacade {
         }
     }
     private void initTramsTrackRuta() throws Exception {
-            // Es donen d'alta els trams d'una ruta i depres, segons siguin
-            // d de tipus track es donen d'alta
-            // els punts de control
+        // Es donen d'alta els trams d'una ruta i depres, segons siguin
+        // d de tipus track es donen d'alta
+        // els punts de control
 
-            List<TramTrack> trams = dataService.getAllTramTracks();
-            for (TramTrack tt: trams) {
-                // Reparticio dels trams a les rutes
-                modelFacade.addTram(tt);
+        List<TramTrack> trams = dataService.getAllTramTracks();
+        for (TramTrack tt: trams) {
+            // Reparticio dels trams a les rutes
+            modelFacade.addTram(tt);
 
-                PuntDePas pdp = dataService.getPuntDePasById(tt.getIdPuntDePasDesti());
-                tt.setPuntDePasDesti(pdp);
-                pdp = dataService.getPuntDePasById(tt.getIdPuntDePasOrigen());
-                tt.setPuntDePasOrigen(pdp);
-            }
+            PuntDePas pdp = dataService.getPuntDePasById(tt.getIdPuntDePasDesti());
+            tt.setPuntDePasDesti(pdp);
+            pdp = dataService.getPuntDePasById(tt.getIdPuntDePasOrigen());
+            tt.setPuntDePasOrigen(pdp);
         }
+    }
 
 
     public boolean initGrups() throws Exception {
@@ -225,6 +274,10 @@ public class ResourcesFacade {
         //DB:
         List<Parell<Integer, Integer>> relacionsRC = dataService.getAllRelacioComarcasRutas();
         tripUB.setComarquesToRutes(relacionsRC);
+    }
+    public boolean getRelacioRutesComarques() throws Exception{
+        List<Parell<Integer, Integer>> relacionsRC = dataService.getAllRelacioComarcasRutas();
+        return tripUB.setLocalitatsRutes(relacionsRC);
     }
 
 
@@ -254,5 +307,10 @@ public class ResourcesFacade {
         modelFacade.addPersonaToGrup(idGrup, correuPersona);
         return dataService.addGrupFormatPersones(gfp);
     }
-
+    public List<Vot> getAllVots() throws Exception {
+        return dataService.getAllVots();
+    }
+    public boolean addNewVot(Vot vot) throws Exception {
+        return dataService.addVot(vot);
+    }
 }

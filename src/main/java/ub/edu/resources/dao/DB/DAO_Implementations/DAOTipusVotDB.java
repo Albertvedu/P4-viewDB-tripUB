@@ -63,7 +63,6 @@ public class DAOTipusVotDB implements DAOTipusVot {
             System.out.println("ERROR: Existe mas de 1 tipusVot con el mismo id");
         }
         if(!list.isEmpty()){
-            System.out.println(list);
             return Optional.ofNullable(list.get(0));
         }
         return Optional.empty();

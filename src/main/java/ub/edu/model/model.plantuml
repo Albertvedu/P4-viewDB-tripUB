@@ -1,0 +1,851 @@
+@startuml
+
+title __MODEL's Class Diagram__\n
+
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Allotjament {
+            - id : Integer
+            - id_etapa : Integer
+            - nom : String
+            - preuPerNit : Double
+            + Allotjament()
+            + Allotjament()
+            + getId()
+            + getIdEtapa()
+            + getNom()
+            + getPreuPerNit()
+            + setEtapa()
+            + setId()
+            + setIdEtapa()
+            + setNom()
+            + setPreuPerNit()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Bicicleta {
+            - id : Integer
+            - model : String
+            + Bicicleta()
+            + Bicicleta()
+            + Bicicleta()
+            + Bicicleta()
+            + getId()
+            + getModel()
+            + setId()
+            + setModel()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Camping {
+            - id : Integer
+            + Camping()
+            + Camping()
+            + getId()
+            + setId()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.CasaRural {
+            - id : Integer
+            - preuEsmorzar : Double
+            + CasaRural()
+            + CasaRural()
+            + CasaRural()
+            + CasaRural()
+            + getId()
+            + getPreuEsmorzar()
+            + setId()
+            + setPreuEsmorzar()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Comarca {
+            - id : Integer
+            - localitats : HashMap<Integer, Localitat>
+            - nom : String
+            + Comarca()
+            + Comarca()
+            + addLocalitat()
+            + getAllLocalitats()
+            + getId()
+            + getLocalitat()
+            + getNom()
+            + setId()
+            + setNom()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Cotxe {
+            - id : Integer
+            - model : String
+            - tipusCombustible : Boolean
+            + Cotxe()
+            + Cotxe()
+            + Cotxe()
+            + Cotxe()
+            + getId()
+            + getModel()
+            + isTipusCombustible()
+            + setId()
+            + setModel()
+            + setTipusCombustible()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Etapa {
+            - id : Integer
+            - lAllotjaments : HashMap<Integer, Allotjament>
+            + Etapa()
+            + Etapa()
+            + addAllotjament()
+            + getAllAllotjaments()
+            + getAllotjament()
+            + getId()
+            + setId()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Grup {
+            - id : Integer
+            - nom : String
+            - personesGrup : HashMap<String, Persona>
+            + Grup()
+            + Grup()
+            + addPersona()
+            + findPersona()
+            + getId()
+            + getNom()
+            + setId()
+            + setNom()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Hotel {
+            - id : Integer
+            - preuEsmorzar : Double
+            - preuMP : Double
+            - preuPC : Double
+            + Hotel()
+            + Hotel()
+            + Hotel()
+            + Hotel()
+            + getId()
+            + getPreuEsmorzar()
+            + getPreuMP()
+            + getPreuPC()
+            + setId()
+            + setPreuEsmorzar()
+            + setPreuMP()
+            + setPreuPC()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Localitat {
+            - altitud : Double
+            - id : Integer
+            - idComarca : Integer
+            - latitud : Double
+            - longitud : Double
+            - nom : String
+            + Localitat()
+            + Localitat()
+            + getAltitud()
+            + getComarca()
+            + getId()
+            + getIdComarca()
+            + getLatitud()
+            + getLongitud()
+            + getNom()
+            + setAltitud()
+            + setComarca()
+            + setId()
+            + setIdComarca()
+            + setLatitud()
+            + setLongitud()
+            + setNom()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.ModelFacade {
+            {static} - uniqueInstance : ModelFacade
+            + addPersonaToGrup()
+            + addTram()
+            + addTransportTram()
+            + findAllotjament()
+            + findEtapa()
+            + findPersonaByCorreu()
+            + getAllAllotjaments()
+            + getAllAllotjamentsUB()
+            + getAllComarques()
+            + getAllGrupsPerNom()
+            + getAllGrupsPerPersona()
+            + getAllTramEtapasUB()
+            + getAllTramTrackUB()
+            + getAllTramsEtapaTrackByRutaId()
+            + getEtapaByIdUB()
+            {static} + getInstance()
+            + getTramEtapaById()
+            + getTramEtapaByIdUB()
+            + getTramTrackById()
+            + getTramTrackByIdUB()
+            + loguejarPersona()
+            + loguejarSociStatus()
+            + recuperarContrasenya()
+            + setXarxaPersones()
+            + validateRegistrePersona()
+            - getAllTramEtapa()
+            - getAllTramTrack()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.ModelFacanaLocalitat {
+            {static} - uniqueInstance : ModelFacanaLocalitat
+            + getAllLocalitats()
+            + getAllLocalitatsUB()
+            {static} + getInstance()
+            + getLocalitatByID()
+            + getLocalitatByIdUB()
+            + getLocalitat_y_EtapaByID()
+            + getLocalitat_y_PuntDePasById()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.ModelFacanaPuntPas {
+            {static} - uniqueInstance : ModelFacanaPuntPas
+            + ferDesLike()
+            + ferLike()
+            + findPuntDePas()
+            {static} + getInstance()
+            + getPuntDePasByIdUB()
+            + getTop10Likes()
+            + getTopEstrellesPuntPas()
+            + getTopEstrellesRuta()
+            + valorarPuntdePas()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.ModelFacanaRuta {
+            {static} - uniqueInstance : ModelFacanaRuta
+            + getAllRutesPerLocalitat()
+            + getAllRutesPerNom()
+            {static} + getInstance()
+            + getRutaById()
+            + valorarRuta()
+            + valorarRutaEstrelles()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Opinio {
+            - correu_persona : String
+            - id : Integer
+            - idTipusOpinio : Integer
+            - id_puntDePas : Integer
+            - tipusOpinio : String
+            - valorOpinio : String
+            + Opinio()
+            + Opinio()
+            + getCorreuPersona()
+            + getId()
+            + getIdPuntDePas()
+            + getIdTipusOpinio()
+            + getPersona()
+            + getPuntDePas()
+            + getTipusOpinio()
+            + getValorOpinio()
+            + setCorreuPersona()
+            + setId()
+            + setIdPuntDePas()
+            + setIdTipusOpinio()
+            + setPersona()
+            + setPuntDePas()
+            + setTipusOpinio()
+            + setValorOpinio()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.PerfilPersona {
+            ~ grups : HashMap<Integer, Grup>
+            ~ opinionsPuntPas : HashMap<Integer, Opinio>
+            ~ reserves : HashMap<Integer, Reserva>
+            ~ votsRutes : HashMap<Integer, Vot>
+            + PerfilPersona()
+            + addGrup()
+            + addOpinio()
+            + addReserva()
+            + addVot()
+            + getAllGrups()
+            + getGrup()
+            + getNomGrups()
+            + getOpinio()
+            + getReserva()
+            + getVot()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Persona {
+            - cognom : String
+            - correu : String
+            - dni : String
+            - id_tripUB : Integer
+            - nom : String
+            - pwd : String
+            + Persona()
+            + Persona()
+            + Persona()
+            + Persona()
+            + getCognom()
+            + getCorreu()
+            + getDni()
+            + getIdTripUB()
+            + getName()
+            + getNom()
+            + getNomGrups()
+            + getPerfil()
+            + getPwd()
+            + setCognom()
+            + setCorreu()
+            + setDni()
+            + setIdTripUB()
+            + setName()
+            + setNom()
+            + setPerfil()
+            + setPwd()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.PuntDePas {
+            - highlight : String
+            - id : Integer
+            + PuntDePas()
+            + PuntDePas()
+            + PuntDePas()
+            + PuntDePas()
+            + getHighlight()
+            + getId()
+            + setHighlight()
+            + setId()
+            + toString()
+            - llamar_toString_super()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Refugi {
+            - id : Integer
+            - preuMP : Double
+            + Refugi()
+            + Refugi()
+            + Refugi()
+            + Refugi()
+            + getId()
+            + getPreuMP()
+            + setId()
+            + setPreuMP()
+            + toString()
+            - llamar_toString_super()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Reserva {
+            - correuPersona : String
+            - dateCheckIn : LocalDate
+            - dateCheckOut : LocalDate
+            - id : Integer
+            - idAllotjament : Integer
+            - tipusPagament : String
+            + Reserva()
+            + Reserva()
+            + getAllotjament()
+            + getCorreuPersona()
+            + getDateCheckIn()
+            + getDateCheckOut()
+            + getId()
+            + getIdAllotjament()
+            + getPersona()
+            + getTipusPagament()
+            + setAllotjament()
+            + setCorreuPersona()
+            + setDateCheckIn()
+            + setDateCheckOut()
+            + setId()
+            + setIdAllotjament()
+            + setPersona()
+            + setTipusPagament()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Ruta {
+            - comarques : Map<Integer, Comarca>
+            - cost : Double
+            - dataCreacio : LocalDate
+            - descripcio : String
+            - dificultat : String
+            - distancia : Double
+            - durada : Integer
+            - id : Integer
+            - idLlocDesti : Integer
+            - idLlocOrigen : Integer
+            - nom : String
+            - tipusRuta : String
+            - trams : HashMap<Integer, Tram>
+            + Ruta()
+            + Ruta()
+            + Ruta()
+            + Ruta()
+            + addComarca()
+            + addTram()
+            + addTransportTram()
+            + containsComarca()
+            + findAllotjament()
+            + findEtapa()
+            + findPuntDePas()
+            + findTram()
+            + findTramEtapaById()
+            + findTramTrackById()
+            + getAllAllotjaments()
+            + getAllTramEtapas()
+            + getAllTramTracks()
+            + getComarques()
+            + getCost()
+            + getDataCreacio()
+            + getDescripcio()
+            + getDificultat()
+            + getDistancia()
+            + getDurada()
+            + getEtapaById()
+            + getId()
+            + getIdLlocDesti()
+            + getIdLlocOrigen()
+            + getLocalitatDesti()
+            + getLocalitatOrigen()
+            + getNom()
+            + getPuntDePasById()
+            + getTipusRuta()
+            + setComarques()
+            + setCost()
+            + setDataCreacio()
+            + setDataCreacio()
+            + setDescripcio()
+            + setDificultat()
+            + setDistancia()
+            + setDurada()
+            + setId()
+            + setIdLlocDesti()
+            + setIdLlocOrigen()
+            + setLocalitatDesti()
+            + setLocalitatOrigen()
+            + setNom()
+            + setTipusRuta()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Seguretat {
+            {static} + isMail()
+            {static} + isPasswordSegur()
+            {static} + validatePassword()
+            {static} + validateUsername()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        enum StatusType {
+          CONTRASENYA_INCORRECTA
+          CONTRASENYA_NO_SEGURA
+          CONTRASENYA_SEGURA
+          CORREU_CORRECTE
+          CORREU_INCORRECTE
+          CORREU_INEXISTENT
+          FORMAT_INCORRECTE
+          FORMAT_INCORRECTE_CORREU_PWD
+          LOGIN_CORRECTE
+          PERSONA_DUPLICADA
+          REGISTRE_VALID
+          text
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        interface ub.edu.model.SubjectModel {
+            {abstract} + notifyObservers()
+            {abstract} + registerObserver()
+            {abstract} + removeObserver()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        interface ub.edu.model.SubjectModelPuntPas {
+            {abstract} + notifyObservers()
+            {abstract} + registerObserver()
+            {abstract} + removeObserver()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Textes {
+            {static} - uniqueInstance : Textes
+            {static} + getInstance()
+            + mostrarPopUp()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Tram {
+            - id : Integer
+            - id_ruta : Integer
+            - id_transport_recomenat : Integer
+            - transportsPossibles : HashMap<Integer, Transport>
+            + Tram()
+            + Tram()
+            + addTransportPossible()
+            + getId()
+            + getId_ruta()
+            + getId_transport_recomenat()
+            + setId()
+            + setId_ruta()
+            + setId_transport_recomenat()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.TramEtapa {
+            - cost : Double
+            - id : Integer
+            - idEtapaDesti : Integer
+            - idEtapaOrigen : Integer
+            - kms : Double
+            - tempsEstimat : LocalTime
+            + TramEtapa()
+            + TramEtapa()
+            + TramEtapa()
+            + TramEtapa()
+            + findAllotjament()
+            + findEtapa()
+            + getAllAllotjaments()
+            + getCost()
+            + getEtapaDesti()
+            + getEtapaOrigen()
+            + getId()
+            + getIdEtapaDesti()
+            + getIdEtapaOrigen()
+            + getKms()
+            + getTempsEstimat()
+            + setCost()
+            + setEtapaDesti()
+            + setEtapaOrigen()
+            + setId()
+            + setIdEtapaDesti()
+            + setIdEtapaOrigen()
+            + setKms()
+            + setTempsEstimat()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.TramTrack {
+            - desnivellNegatiu : Double
+            - desnivellPositiu : Double
+            - distancia : Double
+            - duracioEstimada : LocalTime
+            - id : Integer
+            - idPuntDePasDesti : Integer
+            - idPuntDePasOrigen : Integer
+            + TramTrack()
+            + TramTrack()
+            + TramTrack()
+            + TramTrack()
+            + findPuntDePas()
+            + getDesnivellNegatiu()
+            + getDesnivellPositiu()
+            + getDistancia()
+            + getDuracioEstimada()
+            + getId()
+            + getIdPuntDePasDesti()
+            + getIdPuntDePasOrigen()
+            + getPuntDePasDesti()
+            + getPuntDePasOrigen()
+            + setDesnivellNegatiu()
+            + setDesnivellPositiu()
+            + setDistancia()
+            + setDuracioEstimada()
+            + setId()
+            + setIdPuntDePasDesti()
+            + setIdPuntDePasOrigen()
+            + setPuntDePasDesti()
+            + setPuntDePasOrigen()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Transport {
+            - id : Integer
+            - nomTransport : String
+            - velocitatEstimada : Double
+            + Transport()
+            + Transport()
+            + getId()
+            + getNomTransport()
+            + getVelocitatEstimada()
+            + setId()
+            + setNomTransport()
+            + setVelocitatEstimada()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.TripUB {
+            - comarcaMap : Map<Integer, Comarca>
+            - grups : Map<Integer, Grup>
+            - id : Integer
+            - localitatMap : Map<Integer, Localitat>
+            - observers : ArrayList
+            - relacioComarcaRuta : List<Parell<Integer, Integer>>
+            - rutaMap : Map<Integer, Ruta>
+            {static} - uniqueInstance : TripUB
+            + addGrup()
+            + findComarca()
+            + findGrup()
+            + findRuta()
+            + findRutaByDesti()
+            + findRutaByOrigen()
+            + getAllComarques()
+            + getAllGrups()
+            + getId()
+            + getIdGrupByName()
+            {static} + getInstance()
+            + getLocalitats()
+            + getRutes()
+            + getRutesByLocalitat()
+            + getXarxaPersones()
+            + notifyObservers()
+            + registerObserver()
+            + removeObserver()
+            + rutaPaneChanged()
+            + setComarques()
+            + setComarquesToRutes()
+            + setGrups()
+            + setId()
+            + setLocalitats()
+            + setLocalitatsRutes()
+            + setRutes()
+            + setXarxaPersones()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.Vot {
+            - correuPersona : String
+            - data : LocalDate
+            - id : Integer
+            - idGrup : Integer
+            - idRuta : Integer
+            - idTipusVot : Integer
+            - tipusVot : String
+            - valorVot : String
+            + Vot()
+            + Vot()
+            + Vot()
+            + Vot()
+            + getCorreuPersona()
+            + getData()
+            + getGrup()
+            + getId()
+            + getIdGrup()
+            + getIdRuta()
+            + getIdTipusVot()
+            + getPersona()
+            + getRuta()
+            + getTipusVot()
+            + getValorVot()
+            + setCorreuPersona()
+            + setData()
+            + setGrup()
+            + setId()
+            + setIdGrup()
+            + setIdRuta()
+            + setIdTipusVot()
+            + setPersona()
+            + setRuta()
+            + setTipusVot()
+            + setValorVot()
+            + toString()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.XarxaPersones {
+            - llista : HashMap<String, Persona>
+            + XarxaPersones()
+            + XarxaPersones()
+            + find()
+            + getAllGrupsPerPersona()
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        class ub.edu.model.aPeu {
+            - id : Integer
+            + aPeu()
+            + aPeu()
+            + getId()
+            + setId()
+            + toString()
+        }
+      }
+    }
+
+  
+
+  ub.edu.model.Allotjament o-- ub.edu.model.Etapa : etapa
+  ub.edu.model.Bicicleta -up-|> ub.edu.model.Transport
+  ub.edu.model.Camping -up-|> ub.edu.model.Allotjament
+  ub.edu.model.CasaRural -up-|> ub.edu.model.Allotjament
+  ub.edu.model.Cotxe -up-|> ub.edu.model.Transport
+  ub.edu.model.Etapa -up-|> ub.edu.model.Localitat
+  ub.edu.model.Hotel -up-|> ub.edu.model.Allotjament
+  ub.edu.model.Localitat o-- ub.edu.model.Comarca : comarca
+  ub.edu.model.ModelFacade o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
+  ub.edu.model.ModelFacade o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.ModelFacanaLocalitat o-- ub.edu.model.ModelFacade : modelFacade
+  ub.edu.model.ModelFacanaLocalitat o-- ub.edu.model.ModelFacanaPuntPas : modelFacanaPuntPas
+  ub.edu.model.ModelFacanaLocalitat o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.ModelFacanaPuntPas o-- ub.edu.model.punPas_Strategy.PuntPasStrategy : puntPasStrategy
+  ub.edu.model.ModelFacanaPuntPas o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.ModelFacanaRuta o-- ub.edu.model.punPas_Strategy.PuntPasStrategy : puntPasStrategy
+  ub.edu.model.ModelFacanaRuta o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.Opinio o-- ub.edu.model.Persona : persona
+  ub.edu.model.Opinio o-- ub.edu.model.PuntDePas : puntDePas
+  ub.edu.model.Persona o-- ub.edu.model.PerfilPersona : perfil
+  ub.edu.model.PuntDePas -up-|> ub.edu.model.Localitat
+  ub.edu.model.Refugi -up-|> ub.edu.model.Allotjament
+  ub.edu.model.Reserva o-- ub.edu.model.Allotjament : allotjament
+  ub.edu.model.Reserva o-- ub.edu.model.Persona : persona
+  ub.edu.model.Ruta o-- ub.edu.model.Localitat : localitatDesti
+  ub.edu.model.Ruta o-- ub.edu.model.Localitat : localitatOrigen
+  ub.edu.model.TramEtapa -up-|> ub.edu.model.Tram
+  ub.edu.model.TramEtapa o-- ub.edu.model.Etapa : etapaDesti
+  ub.edu.model.TramEtapa o-- ub.edu.model.Etapa : etapaOrigen
+  ub.edu.model.TramTrack -up-|> ub.edu.model.Tram
+  ub.edu.model.TramTrack o-- ub.edu.model.PuntDePas : puntDePasDesti
+  ub.edu.model.TramTrack o-- ub.edu.model.PuntDePas : puntDePasOrigen
+  ub.edu.model.TripUB .up.|> ub.edu.model.SubjectModel
+  ub.edu.model.TripUB o-- ub.edu.model.XarxaPersones : xarxaPersones
+  ub.edu.model.Vot o-- ub.edu.model.Grup : grup
+  ub.edu.model.Vot o-- ub.edu.model.Persona : persona
+  ub.edu.model.Vot o-- ub.edu.model.Ruta : ruta
+  ub.edu.model.aPeu -up-|> ub.edu.model.Transport
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -1,0 +1,237 @@
+@startuml
+
+title __PUNPAS_STRATEGY's Class Diagram__\n
+
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LikesPuntdePas {
+              - observers : ArrayList
+              + LikesPuntdePas()
+              + llistar()
+          }
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LikesRutes {
+              + LikesRutes()
+              + llistar()
+              - cercaDicotomica()
+          }
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas {
+              + LlistarEstrellesPuntdePas()
+              + llistar()
+          }
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.LlistarEstrellesRutes {
+              + LlistarEstrellesRutes()
+              + llistar()
+          }
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.PuntPasStrategy {
+              - observers : ArrayList
+              - rutaMap : Map<String, Ruta>
+              {static} - uniqueInstance : PuntPasStrategy
+              {static} + getInstance()
+              + getTopEstrellesPuntPas()
+              + getTopEstrellesRutes()
+              + llistarLikes()
+              + modelChanged()
+              + notifyObservers()
+              + perDesLikes()
+              + perEstrelles()
+              + perLikes()
+              + registerObserver()
+              + removeObserver()
+              + valorarRuta()
+              + valorarRutaEstrelles()
+          }
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          enum SimpleFactory {
+            INSTANCE
+          }
+        }
+      }
+    }
+
+  
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          enum SimpleFactory2 {
+            INSTANCE
+          }
+        }
+      }
+    }
+
+
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarDeslike {
+              + ValorarDeslike()
+              + valorar()
+          }
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarEstrelles {
+              + ValorarEstrelles()
+              + valorar()
+          }
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarLikes {
+              + ValorarLikes()
+              + valorar()
+          }
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          abstract class ub.edu.model.punPas_Strategy.ValorarPuntPas {
+              + ValorarPuntPas()
+              + setLlistarPuntPas()
+              + setValorarPuntPas()
+              # performaLlistar()
+              # performaValorar()
+          }
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          class ub.edu.model.punPas_Strategy.ValorarRuta {
+              + ValorarRuta()
+              + valorar()
+          }
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          interface ub.edu.model.punPas_Strategy.iLlistar {
+              {abstract} + llistar()
+          }
+        }
+      }
+    }
+
+    namespace b.edu {
+      namespace model {
+        namespace punPas_Strategy {
+          interface ub.edu.model.punPas_Strategy.iValorar {
+              {abstract} + valorar()
+          }
+        }
+      }
+    }
+
+  
+
+  ub.edu.model.punPas_Strategy.LikesPuntdePas .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LikesPuntdePas o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.model.punPas_Strategy.LikesPuntdePas o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.LikesRutes .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LikesRutes o-- ub.edu.resources.RessourceFacadeRuta : ressourceFacadeRuta
+  ub.edu.model.punPas_Strategy.LikesRutes o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.model.punPas_Strategy.LlistarEstrellesPuntdePas o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.LlistarEstrellesRutes .up.|> ub.edu.model.punPas_Strategy.iLlistar
+  ub.edu.model.punPas_Strategy.LlistarEstrellesRutes o-- ub.edu.resources.RessourceFacadeRuta : ressourceFacadeRuta
+  ub.edu.model.punPas_Strategy.LlistarEstrellesRutes o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.PuntPasStrategy .up.|> ub.edu.model.SubjectModelPuntPas
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerDesLike : perDesLike
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerEstrelles : perEstrelles
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerEstrellesRuta : perEstrellesRuta
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.extendClasses.PerLikes : perLikes
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.SimpleFactory : simpleFactory
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.SimpleFactory2 : simpleFactory2
+  ub.edu.model.punPas_Strategy.PuntPasStrategy o-- ub.edu.model.punPas_Strategy.ValorarPuntPas : veurePer
+  ub.edu.model.punPas_Strategy.ValorarDeslike .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarDeslike o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarDeslike o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.ValorarEstrelles .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.resources.RessourceFacadePuntdePas : ressourceFacadePuntdePas
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.ValorarEstrelles o-- ub.edu.model.TripUB : tripUB
+  ub.edu.model.punPas_Strategy.ValorarLikes .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarLikes o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarLikes o-- ub.edu.model.Textes : textes
+  ub.edu.model.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.punPas_Strategy.iLlistar : illistar
+  ub.edu.model.punPas_Strategy.ValorarPuntPas o-- ub.edu.model.punPas_Strategy.iValorar : ivalorar
+  ub.edu.model.punPas_Strategy.ValorarRuta .up.|> ub.edu.model.punPas_Strategy.iValorar
+  ub.edu.model.punPas_Strategy.ValorarRuta o-- ub.edu.resources.RessourceFacadeRuta : ressourceFacadeRuta
+  ub.edu.model.punPas_Strategy.ValorarRuta o-- ub.edu.controller.SessionMemory : sessionMemory
+  ub.edu.model.punPas_Strategy.ValorarRuta o-- ub.edu.model.Textes : textes
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

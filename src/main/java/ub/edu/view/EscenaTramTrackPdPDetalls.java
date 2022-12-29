@@ -39,8 +39,8 @@ public class EscenaTramTrackPdPDetalls extends Escena{
         //coger los 2 punt de pas y los 2 localitats asociadas
         Integer id_pdp_origen = (Integer) hashMaptramTrack.get("id_pdp_origen");
         Integer id_pdp_desti = (Integer) hashMaptramTrack.get("id_pdp_desti");
-        HashMap<Object,Object> hashMaptramPuntDePas_Origen = controller.getLocalitat_y_PuntDePasById(id_pdp_origen);
-        HashMap<Object,Object> hashMaptramPuntDePas_Desti = controller.getLocalitat_y_PuntDePasById(id_pdp_desti);
+        HashMap<Object,Object> hashMaptramPuntDePas_Origen = localitatController.getLocalitat_y_PuntDePasById(id_pdp_origen);
+        HashMap<Object,Object> hashMaptramPuntDePas_Desti = localitatController.getLocalitat_y_PuntDePasById(id_pdp_desti);
         //los hashmaps contienen: id,nom,highlight
 
         List<HashMap<Object,Object>> hashMapList = new ArrayList<>();
@@ -120,12 +120,13 @@ public class EscenaTramTrackPdPDetalls extends Escena{
         return new_btn;
     }
 
-    public void mostrarFinestraValorarPuntDePas(Integer id_PuntDePas) throws IOException {
+    public void mostrarFinestraValorarPuntDePas(Integer id_PuntDePas) throws Exception {
         Escena register = EscenaFactory.INSTANCE.creaEscena("valorarPuntDePas-view", "Valorar Punt De Pas: "+String.valueOf(id_PuntDePas));
         EscenaValorarPuntDePas escenaValorarPuntDePas = ((EscenaValorarPuntDePas) register);
-        register.setController(controller);
+        register.setController();
         this.controller.getSessionMemory().setIdPuntDePas(id_PuntDePas);
         escenaValorarPuntDePas.start();
+
     }
 }
 

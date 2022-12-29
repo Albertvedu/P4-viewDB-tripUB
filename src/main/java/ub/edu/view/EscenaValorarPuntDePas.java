@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
-public class EscenaValorarPuntDePas extends Escena {
+public class  EscenaValorarPuntDePas extends Escena {
 
     public RadioButton radioButton_Group1_Like;
     public RadioButton radioButton_Group1_Dislike;
@@ -101,7 +101,7 @@ public class EscenaValorarPuntDePas extends Escena {
         });
     }
 
-    public void onButtonValorarClick(){
+    public void onButtonValorarClick() throws Exception {
         //enviar la valoracion punto de paso
         System.out.println("TODO: Entro a enviar una valoració de PdP");
         //TODO:
@@ -117,13 +117,35 @@ public class EscenaValorarPuntDePas extends Escena {
         String valor="";
         if (radioButton_Group3_Text1.isSelected()) {
             typeValorar = "Like";
-            if (radioButton_Group1_Like.isSelected()) valor = radioButton_Group1_Like.getText();
-            else valor = radioButton_Group1_Dislike.getText();
+            if (radioButton_Group1_Like.isSelected())
+                puntdePasController.ferLike();
+            else
+                puntdePasController.ferDesLike();
         }
-        System.out.println("Valoració de tipus: "+ typeValorar+ " és: "+ valor);
-        /** Your Code Here **/
-
-
+        else if (radioButton_Group3_Text2.isSelected()) {
+            typeValorar = "Estrelles";
+            stage.alwaysOnTopProperty().getValue();
+            if (radioButton_Group2_Text1.isSelected()) {
+                controller.getSessionMemory().setValoracio("1");
+                puntdePasController.valorarPuntdePas();
+            }
+            else if (radioButton_Group2_Text2.isSelected()){
+                controller.getSessionMemory().setValoracio("2");
+                puntdePasController.valorarPuntdePas();
+            }
+            else if (radioButton_Group2_Text3.isSelected()){
+                controller.getSessionMemory().setValoracio("3");
+                puntdePasController.valorarPuntdePas();
+            }
+            else if (radioButton_Group2_Text4.isSelected()){
+                controller.getSessionMemory().setValoracio("4");
+                puntdePasController.valorarPuntdePas();
+            }
+            else if (radioButton_Group2_Text5.isSelected()){
+                controller.getSessionMemory().setValoracio("5");
+                puntdePasController.valorarPuntdePas();
+            }
+        }
         stage.close();
     }
 
