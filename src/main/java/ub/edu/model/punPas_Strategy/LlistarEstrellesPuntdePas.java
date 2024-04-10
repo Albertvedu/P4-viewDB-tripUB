@@ -34,15 +34,10 @@ public class LlistarEstrellesPuntdePas implements iLlistar{
                 if (contarEstrelles.containsKey(nomPuntPas)) {
                     double valorAnterior = Double.parseDouble(String.valueOf(contarEstrelles.get(nomPuntPas)));
                     contarEstrelles.put(nomPuntPas, (int) ((Double.parseDouble(opinio.getValorOpinio()) + valorAnterior) / contadorVots[opinio.getIdPuntDePas()]));
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("-- "+ Double.parseDouble(opinio.getValorOpinio()) + " -- "+ valorAnterior+" -- "+contadorVots[opinio.getIdPuntDePas()]);
-                    System.out.println("--- Valor DOUBLE ------ "+  (Double.parseDouble(opinio.getValorOpinio()) + valorAnterior) / contadorVots[opinio.getIdPuntDePas()]);
                 } else
                     contarEstrelles.put(nomPuntPas, (int) Double.parseDouble(opinio.getValorOpinio()));
             }
         }
-
 
         // Ordenar el Map de manera inversa
         Map<String, Integer> sortTopLike = contarEstrelles.entrySet()

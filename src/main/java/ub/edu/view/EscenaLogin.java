@@ -73,7 +73,7 @@ public class EscenaLogin extends Escena {
     }
 
 
-    private void event_goMain (String correuPersona) throws Exception {
+    private void  event_goMain (String correuPersona) throws Exception {
         try {
             Escena main = EscenaFactory.INSTANCE.creaEscena("main-view", "TripUB Main View");
             EscenaMain escenaMain = ((EscenaMain) main);
